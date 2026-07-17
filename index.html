@@ -64,15 +64,67 @@
   
   .scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(to right, var(--gold), var(--gold-bright), var(--sky-soft)); z-index: 102; box-shadow: 0 0 10px rgba(255, 215, 0, 0.8); }
   
-  /* Floating Premium Glassmorphic Navbar */
-  nav { position: fixed; top: 15px; left: 50%; transform: translateX(-50%); width: calc(100% - 30px); max-width: 1100px; z-index: 100; padding: 0.5rem 1.5rem; background: rgba(5, 10, 20, 0.6); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 50px; box-shadow: 0 8px 30px rgba(0,0,0,0.4); transition: all 0.4s ease; }
-  .nav-container { max-width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-  .nav-logo { font-family: 'Galada', cursive; font-size: 1.4rem; color: var(--gold-bright); text-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
-  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-  .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.75rem; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase; position: relative; transition: color 0.3s ease; display: inline-block; }
-  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold-bright); transition: width 0.3s ease; }
-  .nav-links a:hover, .nav-links a.active { color: var(--gold-bright); }
-  .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+  /* Compact Premium Floating Navbar */
+  nav { 
+    position: fixed; top: 20px; right: 30px; left: auto; transform: none;
+    width: auto; max-width: 90%; z-index: 100; padding: 0.5rem 1.5rem; 
+    background: rgba(5, 10, 20, 0.7); backdrop-filter: blur(20px) saturate(180%); 
+    -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255, 255, 255, 0.08); 
+    border-radius: 50px; box-shadow: 0 8px 30px rgba(0,0,0,0.4); 
+    transition: all 0.4s ease; display: flex; justify-content: center; align-items: center; gap: 1.2rem; 
+  }
+  .nav-container { display: flex; justify-content: center; align-items: center; gap: 1.2rem; }
+  .nav-logo { 
+    font-family: 'Galada', cursive; font-size: 1.4rem; color: var(--gold-bright); 
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5); cursor: none; 
+    display: flex; align-items: center; gap: 8px;
+  }
+  
+  /* Animated Hamburger Menu */
+  .menu-toggle { width: 25px; height: 18px; position: relative; cursor: none; display: flex; align-items: center; }
+  .menu-toggle span { display: block; position: absolute; height: 2px; width: 100%; background: var(--gold-bright); border-radius: 2px; left: 0; transition: all 0.3s ease; box-shadow: 0 0 5px var(--gold-bright); }
+  .menu-toggle span:nth-child(1) { top: 0; }
+  .menu-toggle span:nth-child(2) { top: 8px; }
+  .menu-toggle span:nth-child(3) { top: 16px; }
+  .menu-toggle.open span:nth-child(1) { transform: rotate(45deg); top: 8px; }
+  .menu-toggle.open span:nth-child(2) { opacity: 0; }
+  .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg); top: 8px; }
+
+  /* Dropdown Navigation - Small Floating Box */
+  .nav-dropdown { 
+    position: fixed; top: 80px; right: 30px; left: auto; width: 220px; 
+    background: linear-gradient(180deg, rgba(5,10,20,0.98) 0%, rgba(15,76,129,0.9) 100%); 
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); 
+    padding: 1.5rem 1rem; z-index: 99; 
+    border-radius: 16px; 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transform: scale(0.9) translateY(-10px); opacity: 0; visibility: hidden; 
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    display: flex; flex-direction: column; align-items: center; gap: 1rem; 
+  }
+  .nav-dropdown.active { 
+    transform: scale(1) translateY(0); opacity: 1; visibility: visible; 
+  }
+  .nav-dropdown a { 
+    font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; 
+    color: rgba(255,255,255,0.8); text-decoration: none; letter-spacing: 1px; 
+    text-transform: uppercase; position: relative; 
+    transition: color 0.3s ease; width: 100%; text-align: center; padding: 0.4rem 0;
+  }
+  .nav-dropdown a::after { content: ''; position: absolute; bottom: 0; left: 20%; width: 0; height: 1px; background: var(--gold-bright); transition: width 0.3s ease; }
+  .nav-dropdown a:hover, .nav-dropdown a.active { color: var(--gold-bright); }
+  .nav-dropdown a:hover::after, .nav-dropdown a.active::after { width: 60%; }
+  
+  /* Staggered Dropdown Animation */
+  .nav-dropdown.active a { animation: dropDown 0.4s forwards; }
+  .nav-dropdown.active a:nth-child(1) { animation-delay: 0.05s; }
+  .nav-dropdown.active a:nth-child(2) { animation-delay: 0.1s; }
+  .nav-dropdown.active a:nth-child(3) { animation-delay: 0.15s; }
+  .nav-dropdown.active a:nth-child(4) { animation-delay: 0.2s; }
+  .nav-dropdown.active a:nth-child(5) { animation-delay: 0.25s; }
+  .nav-dropdown.active a:nth-child(6) { animation-delay: 0.3s; }
+  @keyframes dropDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
   
   section { padding: 7rem 2rem; position: relative; z-index: 2; }
   
@@ -624,10 +676,7 @@
     body { cursor: auto; }
     .cursor-dot, .cursor-outline { display: none; }
     * { cursor: auto !important; }
-    nav { padding: 0.5rem 1rem; top: 10px; width: calc(100% - 20px); }
-    .nav-links { gap: 1rem; }
-    .nav-links a { font-size: 0.65rem; letter-spacing: 1px; }
-    .nav-logo { font-size: 1.2rem; }
+    nav { padding: 0.5rem 1.2rem; top: 15px; right: 15px; }
     section { padding: 5rem 1.2rem; }
     .countdown-item { min-width: 75px; padding: 0.8rem 0.7rem; }
     .countdown-number { font-size: 2rem; }
@@ -639,11 +688,10 @@
     .scroll-top-btn, .fullscreen-btn { bottom: 80px; left: 20px; }
     .fullscreen-btn { bottom: 140px; }
     .writing-paper { padding: 2rem 1.5rem; }
+    .nav-dropdown { right: 15px; top: 75px; width: 180px; padding: 1.2rem 0.8rem; }
+    .nav-dropdown a { font-size: 1.1rem; }
   }
   @media (max-width: 480px) {
-    .nav-links { gap: 0.6rem; }
-    .nav-links a { font-size: 0.6rem; }
-    .nav-logo { font-size: 1rem; }
     .countdown-timer { gap: 0.5rem; }
     .countdown-item { min-width: 65px; padding: 0.7rem 0.4rem; }
     .countdown-number { font-size: 1.6rem; }
@@ -682,19 +730,25 @@
 
 <div class="scroll-progress" id="scroll-progress"></div>
 
+<!-- Compact Floating Navigation with Dropdown -->
 <nav>
   <div class="nav-container">
-    <div class="nav-logo">Rai 💙</div>
-    <ul class="nav-links">
-      <li><a href="#hero" class="active magnetic">Home</a></li>
-      <li><a href="#about" class="magnetic">About</a></li>
-      <li><a href="#life-counter" class="magnetic">Life</a></li>
-      <li><a href="#journey" class="magnetic">Journey</a></li>
-      <li><a href="#writings" class="magnetic">Writings</a></li>
-      <li><a href="#gallery" class="magnetic">Memories</a></li>
-    </ul>
+    <div class="nav-logo magnetic" id="menu-logo">Rai 💙</div>
+    <div class="menu-toggle magnetic" id="menu-toggle">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
+
+<!-- Dropdown Menu -->
+<div class="nav-dropdown" id="nav-dropdown">
+  <a href="#hero" class="magnetic active">Home</a>
+  <a href="#about" class="magnetic">About</a>
+  <a href="#life-counter" class="magnetic">Life</a>
+  <a href="#journey" class="magnetic">Journey</a>
+  <a href="#writings" class="magnetic">Writings</a>
+  <a href="#gallery" class="magnetic">Memories</a>
+</div>
 
 <section class="hero" id="hero">
   <p class="hero-tagline">— A Birthday Surprise —</p>
@@ -1026,7 +1080,7 @@
       const px = this.x * k + canvas.width / 2 + parallaxX * (canvas.width / this.z);
       const py = this.y * k + canvas.height / 2 + parallaxY * (canvas.width / this.z);
       
-      if (px > 0 && px < canvas.width && py > 0 && py < canvas.height) {
+      if (px > 0 && px < canvas.width && py > 0 && py < canvas.innerHeight) {
         const size = (1 - this.z / canvas.width) * this.size * 2;
         const opacity = 1 - this.z / canvas.width;
         
@@ -1080,6 +1134,35 @@
     }
   }
   setTimeout(typePoem, 3000);
+
+  // Custom Dropdown Menu Logic
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuLogo = document.getElementById('menu-logo');
+  const navDropdown = document.getElementById('nav-dropdown');
+  
+  function toggleMenu() {
+    menuToggle.classList.toggle('open');
+    navDropdown.classList.toggle('active');
+  }
+  menuToggle.addEventListener('click', toggleMenu);
+  menuLogo.addEventListener('click', toggleMenu); // Logo also toggles menu
+  
+  // Close menu when clicking a link
+  document.querySelectorAll('.nav-dropdown a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      menuToggle.classList.remove('open');
+      navDropdown.classList.remove('active');
+      
+      const href = link.getAttribute('href');
+      setTimeout(() => {
+        if (href && href.startsWith('#')) {
+          const target = document.querySelector(href);
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 400); // Delay to allow dropdown to close
+    });
+  });
 
   // Memory Vault Data & Logic
   const memories = [
@@ -1679,7 +1762,7 @@ const captions = [
 
   // Intersection Observer & Scrollspy
   const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('.nav-links a');
+  const navLinks = document.querySelectorAll('.nav-dropdown a');
   const timelineMain = document.getElementById('timeline-main');
   const timelineItems = document.querySelectorAll('.timeline-item');
   
@@ -1714,26 +1797,14 @@ const captions = [
   }, { threshold: 0.1 });
   timelineObserver.observe(timelineMain);
   
-  // Smooth scroll
-  document.querySelectorAll('nav a, .scroll-indicator').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const href = link.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        const target = document.querySelector(href);
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
-  
-  // Nav background, Scroll Progress & Scroll to Top
+  // Nav background & Scroll Progress & Scroll to Top
   const nav = document.querySelector('nav');
   const scrollProgress = document.getElementById('scroll-progress');
   const scrollTopBtn = document.getElementById('scroll-top');
   const fullscreenBtn = document.getElementById('fullscreen-btn');
   
   window.addEventListener('scroll', () => {
-    nav.style.background = window.scrollY > 50 ? 'rgba(5, 10, 20, 0.95)' : 'rgba(5, 10, 20, 0.6)';
+    nav.style.background = window.scrollY > 50 ? 'rgba(5, 10, 20, 0.9)' : 'rgba(5, 10, 20, 0.7)';
     nav.style.boxShadow = window.scrollY > 50 ? '0 4px 15px rgba(0,0,0,0.6)' : '0 8px 30px rgba(0,0,0,0.4)';
     
     const winHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -1807,7 +1878,7 @@ const captions = [
       });
     });
 
-    document.querySelectorAll('a, button, .polaroid, .info-card, .countdown-item, .lightbox-close, .gift-box, .terminal-window, .envelope-wrapper, .letter-close, .music-toggle, .scroll-top-btn, .fullscreen-btn, .memory-card, .writing-card').forEach(el => {
+    document.querySelectorAll('a, button, .polaroid, .info-card, .countdown-item, .lightbox-close, .gift-box, .terminal-window, .envelope-wrapper, .letter-close, .music-toggle, .scroll-top-btn, .fullscreen-btn, .memory-card, .writing-card, .menu-toggle, .nav-logo, .nav-dropdown a').forEach(el => {
       el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover-grow'));
       el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-grow'));
     });
