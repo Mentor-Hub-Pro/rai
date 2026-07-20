@@ -25,6 +25,8 @@ body{font-family:'Poppins',sans-serif;background:var(--royal-deep);color:var(--w
 .cursor-dot{width:8px;height:8px;background:var(--white);box-shadow:0 0 15px var(--gold-bright)}
 .cursor-outline{width:40px;height:40px;border:1px solid var(--gold-bright);transition:width 0.3s ease,height 0.3s ease,border-color 0.3s ease;box-shadow:0 0 15px rgba(255,215,0,0.2)}
 .cursor-outline.hover-grow{width:70px;height:70px;border-color:var(--gold-bright);background:rgba(255,215,0,0.1)}
+.golden-dust{position:fixed;pointer-events:none;width:6px;height:6px;background:var(--gold-bright);border-radius:50%;box-shadow:0 0 10px var(--gold-bright);animation:dustFade 1s forwards;z-index:9998}
+@keyframes dustFade{0%{transform:scale(1) translateY(0);opacity:1}100%{transform:scale(0) translateY(-20px);opacity:0}}
 .preloader{position:fixed;inset:0;background:var(--royal-deep);z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;transition:opacity 0.8s ease,visibility 0.8s ease}
 .preloader.hidden{opacity:0;visibility:hidden}
 .loader-name{font-family:'Galada',cursive;font-size:3rem;color:var(--gold-bright);text-shadow:0 0 30px rgba(255,215,0,0.5);animation:pulse 1.5s ease-in-out infinite}
@@ -205,9 +207,40 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .letter-photo-frame:hover img{transform:scale(1.05)}
 .letter-header{text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#8b4513;padding:1.5rem 1rem 0.5rem;margin:0 2rem 1rem;border-bottom:2px solid #d4af37;font-style:italic}
 .letter-content{font-family:'Hind Siliguri',sans-serif;line-height:2.2;font-size:1.05rem;position:relative;z-index:2;text-align:left;padding:0 2rem 2rem;background-image:repeating-linear-gradient(transparent,transparent 29px,#e8e0c9 30px)}
-.letter-poem{font-family:'Galada',cursive;font-size:1.15rem;color:#5a4632;margin:1.2rem 0;text-align:center;line-height:2;background:rgba(212,175,55,0.1);padding:1rem;border-radius:8px}
-.letter-content p{margin-bottom:1rem;color:#4a3b2a}
+.letter-poem{font-family:'Galada',cursive;font-size:1.15rem;margin:1.2rem 0;text-align:center;line-height:2;background:rgba(212,175,55,0.1);padding:1rem;border-radius:8px;background:linear-gradient(90deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3,#feca57);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:liquidGradient 6s linear infinite}
+.letter-content p{margin-bottom:1rem;color:#4a3b2a;white-space:pre-wrap}
 .letter-signature{margin-top:1.5rem;text-align:right;font-family:'Dancing Script';font-size:1.6rem;color:#8b4513}
+
+/* PRIVATE VAULT STYLES */
+.vault-section{text-align:center;padding:4rem 2rem;max-width:1200px;margin:0 auto}
+.vault-ui{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:24px;padding:2rem;backdrop-filter:blur(15px);box-shadow:0 10px 30px rgba(0,0,0,0.3);transition:all 0.5s ease;max-width:400px;margin:0 auto}
+.vault-display{font-family:'Orbitron',sans-serif;font-size:2rem;color:var(--gold-bright);letter-spacing:10px;margin-bottom:2rem;height:40px;display:flex;align-items:center;justify-content:center;border-bottom:2px solid var(--gold);width:200px;margin:0 auto 2rem;text-shadow:0 0 15px rgba(255,215,0,0.6)}
+.vault-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:250px;margin:0 auto}
+.vault-btn{background:rgba(255,255,255,0.05);border:1px solid rgba(212,175,55,0.3);color:var(--white);padding:1rem;font-size:1.5rem;border-radius:12px;cursor:none;transition:all 0.2s ease;font-family:'Orbitron',sans-serif}
+.vault-btn:hover{background:var(--gold);color:var(--royal-deep);transform:scale(1.05)}
+.vault-btn.action{background:rgba(255,69,0,0.1);border-color:rgba(255,69,0,0.3);color:#ff6347}
+.vault-btn.action:hover{background:#ff4500;color:#fff}
+.vault-msg{margin-top:1.5rem;font-family:'Hind Siliguri',sans-serif;font-size:1rem;color:#ff4d4d;min-height:20px}
+.vault-shake{animation:shake 0.5s cubic-bezier(.36,.07,.19,.97) both}
+@keyframes shake{10%,90%{transform:translateX(-1px)}20%,80%{transform:translateX(2px)}30%,50%,70%{transform:translateX(-4px)}40%,60%{transform:translateX(4px)}}
+.vault-success{border-color:var(--terminal-green) !important;box-shadow:0 0 30px rgba(0,255,157,0.3) !important}
+.private-content{display:none;opacity:0;transition:opacity 1s ease;margin-top:2rem}
+.private-content.active{display:block;opacity:1}
+.private-typewriter-container{margin-bottom:3rem;text-align:center}
+#private-title-1{font-family:'Dancing Script',cursive;font-size:clamp(2rem,5vw,3rem);background:linear-gradient(90deg,#ffd700,#ff6b6b,#ffd700);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmerText 3s linear infinite;min-height:50px}
+#private-title-2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,3vw,1.8rem);color:var(--sky-soft);margin-top:0.5rem;min-height:30px}
+.private-intro{font-family:'Hind Siliguri';color:rgba(255,255,255,0.8);margin-bottom:2rem;text-align:center;font-size:1.1rem}
+
+/* ULTIMATE PRIVATE GALLERY - 2 PER ROW & THICK ANIMATED MULTI-COLOR BORDER */
+.private-gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3rem;max-width:900px;margin:0 auto}
+@media(max-width:768px){.private-gallery-grid{grid-template-columns:1fr;gap:2rem;max-width:400px}}
+
+.private-photo-card{position:relative;border-radius:18px;cursor:none;transform-style:preserve-3d;transition:transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275),box-shadow 0.4s ease;box-shadow:0 15px 30px rgba(0,0,0,0.4);background:var(--royal-deep);border:12px solid transparent;background-image:linear-gradient(var(--royal-deep),var(--royal-deep)) padding-box,linear-gradient(90deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3,#ffd700,#ff6b6b) border-box;background-size:100% 100%,300% 100%;animation:animatedBorder 4s linear infinite}
+@keyframes animatedBorder{0%{background-position:0% 0%,0% 0%}100%{background-position:0% 0%,300% 0%}}
+
+.private-photo-card img{width:100%;display:block;aspect-ratio:9/16;object-fit:cover;border-radius:6px;transition:transform 0.6s ease,filter 0.4s ease;filter:saturate(1.2) contrast(1.1)}
+.private-photo-card:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 20px 50px rgba(0,0,0,0.5),0 0 40px rgba(255,215,0,0.5)}
+.private-photo-card:hover img{transform:scale(1.1);filter:saturate(1.5) contrast(1.2) brightness(1.05)}
 
 .surprise-section{text-align:center;padding:4rem 2rem}
 .gift-box{width:120px;height:120px;margin:2rem auto;cursor:none;position:relative;perspective:1000px;transition:transform 0.3s ease;display:inline-block}
@@ -260,7 +293,7 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .lightbox-prev{left:2rem}.lightbox-next{right:2rem}
 
 footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;background:linear-gradient(to bottom,transparent,rgba(5,10,20,0.6));margin-top:3rem}
-.footer-quote{font-family:'Galada',cursive;font-size:clamp(1.3rem,3vw,1.9rem);color:var(--gold-bright);line-height:2.2;max-width:800px;margin:0 auto 2rem;text-shadow:0 0 30px rgba(255,215,0,0.3)}
+.footer-quote{font-family:'Galada',cursive;font-size:clamp(1.3rem,3vw,1.9rem);line-height:2.2;max-width:800px;margin:0 auto 2rem;background:linear-gradient(90deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3,#feca57);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:liquidGradient 6s linear infinite}
 .footer-line{width:120px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:2.5rem auto}
 .footer-credit{font-size:0.85rem;color:rgba(255,255,255,0.6);font-weight:300;letter-spacing:3px;text-transform:uppercase}
 .footer-credit span{color:var(--gold-bright);font-weight:500}
@@ -319,7 +352,7 @@ footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;back
 <section class="hero" id="hero">
   <p class="hero-tagline">— A Birthday Surprise —</p>
   <h1 class="hero-title">Rai's Magical 18th Chapter</h1>
-  <p class="hero-subtitle">Welcome to the digital stardust created just for you. ❤️😘</p>
+  <p class="hero-subtitle" id="hero-subtitle">Welcome to the digital stardust created just for you. ❤️😘</p>
   <div class="hero-image-wrapper" id="hero-img-wrapper"><img src="https://i.ibb.co/ymHZpn7x/Whats-App-Image-2026-07-09-at-01-15-29.jpg" alt="Rai" class="hero-image" id="hero-img"></div>
   <p class="hero-poem" id="poem-text"></p>
   <div class="countdown-container" id="countdown-container">
@@ -457,6 +490,40 @@ footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;back
   <div class="scrapbook-grid" id="gallery-grid"></div>
 </section>
 
+<section class="vault-section fade-in" id="private-vault">
+  <h2 class="section-title">The Private Vault</h2>
+  <div class="divider"><div class="divider-line"></div><span class="divider-star">✦</span><div class="divider-line"></div></div>
+  <p class="section-subtitle"><span class="multi-text">শুধু আমাদের জানা একটি গোপন সংখ্যা দাও — Enter our secret PIN 🔐</span></p>
+  
+  <div class="vault-ui" id="vault-ui">
+    <div class="vault-display" id="pin-display"></div>
+    <div class="vault-keypad" id="keypad">
+      <button class="vault-btn magnetic" data-val="1">1</button>
+      <button class="vault-btn magnetic" data-val="2">2</button>
+      <button class="vault-btn magnetic" data-val="3">3</button>
+      <button class="vault-btn magnetic" data-val="4">4</button>
+      <button class="vault-btn magnetic" data-val="5">5</button>
+      <button class="vault-btn magnetic" data-val="6">6</button>
+      <button class="vault-btn magnetic" data-val="7">7</button>
+      <button class="vault-btn magnetic" data-val="8">8</button>
+      <button class="vault-btn magnetic" data-val="9">9</button>
+      <button class="vault-btn action magnetic" data-val="clear">C</button>
+      <button class="vault-btn magnetic" data-val="0">0</button>
+      <button class="vault-btn action magnetic" data-val="enter"><i class="fas fa-check"></i></button>
+    </div>
+    <p class="vault-msg" id="vault-msg"></p>
+  </div>
+
+  <div class="private-content" id="private-area">
+    <div class="private-typewriter-container">
+      <h3 id="private-title-1"></h3>
+      <h4 id="private-title-2"></h4>
+    </div>
+    <p class="private-intro">এখানে আছে আমাদের খুব পার্সোনাল কিছু স্মৃতি। যা শুধু তুমিই দেখতে পাবে। আমাদের এই ছোট্ট দুনিয়া। ❤️</p>
+    <div class="private-gallery-grid" id="private-gallery-grid"></div>
+  </div>
+</section>
+
 <footer>
   <p class="footer-quote">হাজারো নক্ষত্রের মাঝে যেন চাঁদ একটিই,<br>আমার এই ছোট্ট দুনিয়ায় তুমিই একমাত্র রানি।<br>Happy 18th, Rai. 💙❤️😘</p>
   <div class="footer-line"></div>
@@ -477,12 +544,12 @@ footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;back
       <img src="https://i.ibb.co/3y1M0W9K/download.jpg" alt="Special Letter Frame">
     </div>
     <div class="letter-header">A Whisper from the Heart</div>
-    <div class="letter-content">
-      <p>প্রিয় রাই,</p>
-      <p>তোমার জন্য তৈরি করার সময়, আমার মনে শুধু একটাই কথা ঘুরপাক খাচ্ছিল— তুমি আমার কাছে কতটা অসামান্য। তুমি শুধু আমার প্রিয় মানুষ নও, তুমি আমার শ্বাস-প্রশ্বাসের অংশ। তুমি প্রথম চেয়েছিলে আমার লেখা নিজের কোনো চিঠি, আমি একটু অন্যরকমভাবেই তোমাকে সেটা দিলাম।</p>
+    <div class="letter-content" id="letter-content">
+      <p id="letter-text-1">প্রিয় রাই,</p>
+      <p id="letter-text-2">তোমার জন্য তৈরি করার সময়, আমার মনে শুধু একটাই কথা ঘুরপাক খাচ্ছিল— তুমি আমার কাছে কতটা অসামান্য। তুমি শুধু আমার প্রিয় মানুষ নও, তুমি আমার শ্বাস-প্রশ্বাসের অংশ। তুমি প্রথম চেয়েছিলে আমার লেখা নিজের কোনো চিঠি, আমি একটু অন্যরকমভাবেই তোমাকে সেটা দিলাম।</p>
       <div class="letter-poem">তোমাকে নিয়ে সময় কাটানো হলো জীবনের সবচেয়ে সুন্দর এক মুহূর্ত।<br>যে সকালে তুমি ছিলে আমার কাছে, কত কিছু দেখলাম, কত কিছু বুঝলাম!<br>তুমি আমার লাইফে এসে এক সুন্দর অনুভূতি জাগিয়েছ।<br>হাতের ছোঁয়ায় চোখ বুজে মাথা রাখার যে জায়গা, সেটা শুধু তোমাতেই রয়ে গেল।<br><br>চোখের পাতা বন্ধ করলে প্রতিটা মুহূর্তে চোখের সামনে এক সুন্দর অনুভূতি জাগে।<br>যেন আবারও কানে কানে প্রতিবার শুধু তোমাকেই বলতে পারি...</div>
-      <p>তিনি না চাইলে কিছুই না, তবুও মনে হয় তুমি আমার জীবনের সবচেয়ে সেরা মানুষ হয়ে গেছ। যাকে আর কখনো কোনোভাবে হারানোর কথা কল্পনাতেও আনতে চাই না। তোমার এই ১৮টি বছর যেন রাধা-কৃষ্ণের সেই অমর প্রেমের মতো নিরন্তর হোক। আমার থেকো, আমারই থেকো। আমার গিন্নি ❤️</p>
-      <div class="letter-signature">— চিরকাল তোমারই থাকবো</div>
+      <p id="letter-text-3">তিনি না চাইলে কিছুই না, তবুও মনে হয় তুমি আমার জীবনের সবচেয়ে সেরা মানুষ হয়ে গেছ। যাকে আর কখনো কোনোভাবে হারানোর কথা কল্পনাতেও আনতে চাই না। তোমার এই ১৮টি বছর যেন রাধা-কৃষ্ণের সেই অমর প্রেমের মতো নিরন্তর হোক। আমার থেকো, আমারই থেকো। আমার গিন্নি ❤️</p>
+      <div class="letter-signature">— তোমার গোপন অ্যাডমায়ার</div>
     </div>
   </div>
 </div>
@@ -502,6 +569,32 @@ draw(){const k=128/this.z;const px=this.x*k+canvas.width/2+parallaxX*(canvas.wid
 function initStars(){stars=[];let count=Math.min(250,Math.floor(window.innerWidth/8));for(let i=0;i<count;i++)stars.push(new Star())}
 function animateStars(){ctx.fillStyle='rgba(5, 10, 20, 0.2)';ctx.fillRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{s.update();s.draw()});requestAnimationFrame(animateStars)}
 canvas.width=window.innerWidth;canvas.height=window.innerHeight;initStars();animateStars();
+
+let lastDust=0;
+document.addEventListener('mousemove',function(e){
+    const now=Date.now();
+    if(now-lastDust>40){
+        lastDust=now;
+        const dust=document.createElement('div');
+        dust.className='golden-dust';
+        dust.style.left=e.clientX+'px';
+        dust.style.top=e.clientY+'px';
+        document.body.appendChild(dust);
+        setTimeout(()=>dust.remove(),1000);
+    }
+});
+
+function setGreeting(){
+    const hour=new Date().getHours();
+    let greet="Welcome to the digital stardust created just for you. ❤️😘";
+    if(hour>=5&&hour<12)greet="Good Morning, my Queen. The sun shines brighter because of you. 🌅❤️";
+    else if(hour>=12&&hour<17)greet="Good Afternoon, my Star. Hope your day is as beautiful as you. ☀️😘";
+    else if(hour>=17&&hour<21)greet="Good Evening, my Love. The sky looks magical just like you. 🌆💕";
+    else greet="Good Night, my Moon. May your dreams be as sweet as you are. 🌙🥰";
+    document.getElementById('hero-subtitle').innerText=greet;
+}
+setGreeting();
+
 const poemText="আকাশের নীল আর সাগরের গভীরতা ছুঁয়ে,\nতোমার এই আঠারোর গল্প সাজালাম ভালোবেসে ধুয়ে।";const poemElement=document.getElementById('poem-text');let poemIndex=0;
 function typePoem(){if(poemIndex<poemText.length){let char=poemText.charAt(poemIndex);if(char==='\n')poemElement.innerHTML+='<br>';else poemElement.innerHTML+=char;poemIndex++;setTimeout(typePoem,50)}else{poemElement.innerHTML+='<span class="cursor-type"></span>'}}
 setTimeout(typePoem,3000);
@@ -516,7 +609,7 @@ const memoryGrid=document.getElementById('memory-grid');const memoryPopup=docume
 memories.forEach((mem,idx)=>{const card=document.createElement('div');card.className='memory-card magnetic';card.style.transitionDelay=`${idx*0.1}s`;card.innerHTML=`<div class="memory-lock"><i class="fas fa-lock"></i></div><div class="memory-date">${mem.date}</div><div class="memory-tap">Tap to Unlock</div>`;card.addEventListener('click',()=>{memoryPaper.querySelector('.memory-date-stamp').innerText=mem.date;memoryPaper.querySelector('.memory-text').innerText=mem.text;memoryPopup.classList.add('active')});memoryGrid.appendChild(card)});
 memoryClose.addEventListener('click',()=>memoryPopup.classList.remove('active'));memoryPopup.addEventListener('click',(e)=>{if(e.target===memoryPopup)memoryPopup.classList.remove('active')});
 
-const writings=[{title:"অনলাইন পরিচয়",author:"সুদীপা অধিকারী",text:`তাকে আমি দেখিনি এখনো,\nতবুও চিনি অনেকটাই।।\nচেনা তার গলার সুর,\nপ্রতিদিন কথা যে হয়।।\nনা, তার চোখে চোখ পড়েনি আজও,\nক্যামেরা খুলিনি এখনো।।\nতবু সে অনুভবে আছে,\nএক আকাশ ভরা মেঘের মতো।।\nপ্রতিদিন সকালে তাকে শুভেচ্ছা,\nকোনো দিন রাতভর রোদ্দুর ছক।।\nহাসি, দুঃখ, রাগ সবই কেবল ভয়েস নোটে,\nএকটা অদেখা মুখ তাকে নিয়ে কত কল্পনা।।\nভাবি, কখনও কি দেখব তাকে?\nনাকি এমনটাই ভালো?\nনা দেখা মানেই কি কম কিছু?\nনাকি এ-ই ভালোবাসার আলো?\nকখনো সে বলে "তুমি কেমন আছো"?\nতার কথার ধরন এক অন্য রকম।।\nআমি চুপ থেকে শুনি,\nফোনের ওপারেই অনুভবের জ্ঞান।।\nনিঃশব্দে বয়ে চলে কথা,\nতার নেই কোনো দৃশ্যরেখা।।\nতবু তারই মধ্যে গড়ে উঠেছে এক,\nঅদৃশ্য এক প্রেমের দেখা।।`},{title:"বাবা নেই",author:"সুদীপা অধিকারী",text:`বাবা নেই পাশে, তবু ছায়া রয় বাতাসে,\nচুপচাপ রাতে মনে পড়ে তার হাসি মুখ।\nবাবা মনে ভরসা, এখন শুধু স্মৃতি,\nচোখে জল আসে, তবু মনে শান্তি।\nতিনি নেই, তবু আছেন, হৃদয়ের গভীরে।\nহাতে ধরা পথটা এখন ফাঁকা লাগে,\nবাবা থাকলে হয়তো বলতেন- "ভয় কিসের রে"?\nমন বলে তুমি আছো, শুধু চোখে দেখা যায়না।\nভালোবাসা রয়ে গেছে, ঠিক আগের মতোই।`},{title:"চোখের জল",author:"সুদীপা অধিকারী",text:`চোখের জল কখনও কথা বলে তা, 💧\nবোঝার ক্ষমতা হয়তো সবার থাকে না ।। 🤷‍♀️\n\nতোমার চোখে আমি আমার জন্য\nভালোবাসা দেখেছি ।। ❤️\n\nতোমার চোখে আমি আমার জন্য\nসম্মান দেখেছি ।। 🙏\n\nতোমার চোখের জল আমাকে বলে\nদিয়েছে তোমার না বলা সমস্ত কথা ।। ✨`},{title:"আমি আবার প্রেমে পড়েছি",author:"সুদীপা অধিকারী",text:`জীবনে কখনো কখনো কিছু মানুষ আসে! 👤\nআবার চলে যায়, আবার মনটা ভেঙে যায়।। 💔\nকিন্তু এবার আমি যার প্রেমে পড়েছি, ❤️\nসেটা কোনো মানুষের সঙ্গে নয়।। 🙅‍♀️\n\nএবার আমি প্রেমে পড়েছি একটা বইয়ের সঙ্গে। 📖🥰\nসেই বইয়ের পাতার মধ্যে এক অদ্ভুত শান্তি আছে।। 🕊️✨\nসেটা হয়তো কখনো মানুষও দিতে পারবেনা।। 🤫\nযখন মানুষকে নিজের অনুভূতিগুলো বোঝাতে যাই, 🗣️\nতখন মানুষ রাগ করে, অবিশ্বাস করে, 😡😣\n\nকিন্তু বই! 📘\nবই কখনো রাগ বা অভিমান করে না।। 🤫💖\nবইয়ের প্রতিটি পাতায় যেন 📄\nনিজের অনুভূতিগুলো প্রকাশ পায়।। 🌸\n\nতাই এখন আর নিজের অনুভূতি বা 💭\nকল্পনাগুলো কাউকে বোঝাতে যাই না, 🤐\nকারণ আমার অনুভূতি বোঝার জন্য 🤗\nএকটা গোটা বই আছে।। 📚💫\n\nবইয়ের পাতায় আমার প্রতিটি কল্পনা মিলে যায়।। 🌈✨\nযা আমি মানুষের থেকে কখনো পাব না।। ❌\n\nআমি আবারও প্রেমে পড়েছি।। 💞\nহ্যাঁ, আমি আবারও প্রেমে পড়েছি— 😍\nএকটা বইয়ের প্রেমে পড়েছি।। 📖❤️✨`}];
+const writings=[{title:"অনলাইন পরিচয়",author:"তোমার গোপন অ্যাডমায়ার",text:`তাকে আমি দেখিনি এখনো,\nতবুও চিনি অনেকটাই।।\nচেনা তার গলার সুর,\nপ্রতিদিন কথা যে হয়।।\nনা, তার চোখে চোখ পড়েনি আজও,\nক্যামেরা খুলিনি এখনো।।\nতবু সে অনুভবে আছে,\nএক আকাশ ভরা মেঘের মতো।।\nপ্রতিদিন সকালে তাকে শুভেচ্ছা,\nকোনো দিন রাতভর রোদ্দুর ছক।।\nহাসি, দুঃখ, রাগ সবই কেবল ভয়েস নোটে,\nএকটা অদেখা মুখ তাকে নিয়ে কত কল্পনা।।\nভাবি, কখনও কি দেখব তাকে?\nনাকি এমনটাই ভালো?\nনা দেখা মানেই কি কম কিছু?\nনাকি এ-ই ভালোবাসার আলো?\nকখনো সে বলে "তুমি কেমন আছো"?\nতার কথার ধরন এক অন্য রকম।।\nআমি চুপ থেকে শুনি,\nফোনের ওপারেই অনুভবের জ্ঞান।।\nনিঃশব্দে বয়ে চলে কথা,\nতার নেই কোনো দৃশ্যরেখা।।\nতবু তারই মধ্যে গড়ে উঠেছে এক,\nঅদৃশ্য এক প্রেমের দেখা।।`},{title:"বাবা নেই",author:"তোমার গোপন অ্যাডমায়ার",text:`বাবা নেই পাশে, তবু ছায়া রয় বাতাসে,\nচুপচাপ রাতে মনে পড়ে তার হাসি মুখ।\nবাবা মনে ভরসা, এখন শুধু স্মৃতি,\nচোখে জল আসে, তবু মনে শান্তি।\nতিনি নেই, তবু আছেন, হৃদয়ের গভীরে।\nহাতে ধরা পথটা এখন ফাঁকা লাগে,\nবাবা থাকলে হয়তো বলতেন- "ভয় কিসের রে"?\nমন বলে তুমি আছো, শুধু চোখে দেখা যায়না।\nভালোবাসা রয়ে গেছে, ঠিক আগের মতোই।`},{title:"চোখের জল",author:"তোমার গোপন অ্যাডমায়ার",text:`চোখের জল কখনও কথা বলে তা, 💧\nবোঝার ক্ষমতা হয়তো সবার থাকে না ।। 🤷‍♀️\n\nতোমার চোখে আমি আমার জন্য\nভালোবাসা দেখেছি ।। ❤️\n\nতোমার চোখে আমি আমার জন্য\nসম্মান দেখেছি ।। 🙏\n\nতোমার চোখের জল আমাকে বলে\nদিয়েছে তোমার না বলা সমস্ত কথা ।। ✨`},{title:"আমি আবার প্রেমে পড়েছি",author:"তোমার গোপন অ্যাডমায়ার",text:`জীবনে কখনো কখনো কিছু মানুষ আসে! 👤\nআবার চলে যায়, আবার মনটা ভেঙে যায়।। 💔\nকিন্তু এবার আমি যার প্রেমে পড়েছি, ❤️\nসেটা কোনো মানুষের সঙ্গে নয়।। 🙅‍♀️\n\nএবার আমি প্রেমে পড়েছি একটা বইয়ের সঙ্গে। 📖🥰\nসেই বইয়ের পাতার মধ্যে এক অদ্ভুত শান্তি আছে।। 🕊️✨\nসেটা হয়তো কখনো মানুষও দিতে পারবেনা।। 🤫\nযখন মানুষকে নিজের অনুভূতিগুলো বোঝাতে যাই, 🗣️\nতখন মানুষ রাগ করে, অবিশ্বাস করে, 😡😣\n\nকিন্তু বই! 📘\nবই কখনো রাগ বা অভিমান করে না।। 🤫💖\nবইয়ের প্রতিটি পাতায় যেন 📄\nনিজের অনুভূতিগুলো প্রকাশ পায়।। 🌸\n\nতাই এখন আর নিজের অনুভূতি বা 💭\nকল্পনাগুলো কাউকে বোঝাতে যাই না, 🤐\nকারণ আমার অনুভূতি বোঝার জন্য 🤗\nএকটা গোটা বই আছে।। 📚💫\n\nবইয়ের পাতায় আমার প্রতিটি কল্পনা মিলে যায়।। 🌈✨\nযা আমি মানুষের থেকে কখনো পাব না।। ❌\n\nআমি আবারও প্রেমে পড়েছি।। 💞\nহ্যাঁ, আমি আবারও প্রেমে পড়েছি— 😍\nএকটা বইয়ের প্রেমে পড়েছি।। 📖❤️✨`}];
 const writingGrid=document.getElementById('writing-grid');const writingPopup=document.getElementById('writing-popup');const writingClose=document.getElementById('writing-close');
 writings.forEach((w,idx)=>{const card=document.createElement('div');card.className='memory-card magnetic writing-card';card.style.animationDelay=`${idx*0.5}s`;card.innerHTML=`<div class="memory-lock"><i class="fas fa-feather-alt"></i></div><div class="memory-date">${w.title}</div><div class="memory-tap">Tap to Read</div>`;card.addEventListener('click',()=>{document.getElementById('w-title').innerText=w.title;document.getElementById('w-author').innerText=`- ${w.author}`;document.getElementById('w-text').innerText=w.text;writingPopup.classList.add('active')});writingGrid.appendChild(card)});
 writingClose.addEventListener('click',()=>writingPopup.classList.remove('active'));writingPopup.addEventListener('click',(e)=>{if(e.target===writingPopup)writingPopup.classList.remove('active')});
@@ -552,7 +645,196 @@ function createHeart(){const h=['💙','💛','✨','💫','🌟','⭐','❤️'
 setInterval(createHeart,900);for(let i=0;i<5;i++)setTimeout(createHeart,i*300);
 
 document.getElementById('gift-box').addEventListener('click',function(){this.classList.add('opened');document.getElementById('surprise-text').classList.add('visible');launchConfetti()});
-document.getElementById('envelope-trigger').addEventListener('click',()=>document.getElementById('letter-popup').classList.add('active'));document.getElementById('letter-close').addEventListener('click',()=>document.getElementById('letter-popup').classList.remove('active'));document.getElementById('letter-popup').addEventListener('click',e=>{if(e.target.id==='letter-popup')e.target.classList.remove('active')});
+
+// Typewriter Letter Effect
+const envelopeTrigger=document.getElementById('envelope-trigger');
+const letterPopup=document.getElementById('letter-popup');
+const letterClose=document.getElementById('letter-close');
+let letterTyped=false;
+envelopeTrigger.addEventListener('click',()=>{
+    letterPopup.classList.add('active');
+    if(!letterTyped){
+        letterTyped=true;
+        const l1=document.getElementById('letter-text-1').innerText;
+        const l2=document.getElementById('letter-text-2').innerText;
+        const l3=document.getElementById('letter-text-3').innerText;
+        document.getElementById('letter-text-1').innerHTML='<span class="cursor-type"></span>';
+        document.getElementById('letter-text-2').innerHTML='';
+        document.getElementById('letter-text-3').innerHTML='';
+        
+        let i=0;
+        function typePara(text, el, next){
+            let idx=0;
+            let interval=setInterval(()=>{
+                el.innerHTML=text.substring(0, idx+1)+'<span class="cursor-type"></span>';
+                idx++;
+                if(idx>=text.length){
+                    clearInterval(interval);
+                    el.innerHTML=text;
+                    if(next) setTimeout(next, 300);
+                }
+            }, 40);
+        }
+        setTimeout(()=>typePara(l1, document.getElementById('letter-text-1'), ()=>{
+            typePara(l2, document.getElementById('letter-text-2'), ()=>{
+                typePara(l3, document.getElementById('letter-text-3'), null);
+            });
+        }), 500);
+    }
+});
+letterClose.addEventListener('click',()=>letterPopup.classList.remove('active'));
+letterPopup.addEventListener('click',e=>{if(e.target.id==='letter-popup')e.target.classList.remove('active')});
+
+// Private Vault Logic
+let pinInput="";
+const correctPin="11022002";
+const pinDisplay=document.getElementById('pin-display');
+const vaultUI=document.getElementById('vault-ui');
+const vaultMsg=document.getElementById('vault-msg');
+const privateArea=document.getElementById('private-area');
+let vaultUnlocked=false;
+
+// Array of Private Photos (Easy to add more later)
+const privatePhotos = [
+    "https://i.ibb.co/JWnKp1pc/IMG-20260330-145127-187.webp",
+    "https://i.ibb.co/hxjv8C9b/IMG20260608183315.jpg",
+    "https://i.ibb.co/1Y2hdKzz/IMG20260608101142.jpg",
+    "https://i.ibb.co/XZZrJdpT/IMG20260608101203.jpg",
+    "https://i.ibb.co/bg1szjcb/IMG20260608101229.jpg",
+    "https://i.ibb.co/v44th19V/IMG20260608101237.jpg",
+    "https://i.ibb.co/Vc2NkGWv/IMG20260608110740.jpg",
+    "https://i.ibb.co/W42zw6zD/IMG20260608110905.jpg",
+    "https://i.ibb.co/S4FhT0bh/IMG20260608111128.jpg",
+    "https://i.ibb.co/5WKfL1dL/IMG20260608111254.jpg",
+    "https://i.ibb.co/GQRgtKX2/IMG20260608112138.jpg",
+    "https://i.ibb.co/MyG3Pv5y/IMG20260608112145.jpg",
+    "https://i.ibb.co/jP6Pgjk3/IMG20260608112213.jpg",
+    "https://i.ibb.co/MDH2RF9v/IMG20260608112305.jpg",
+    "https://i.ibb.co/YB0LTZRR/IMG20260608112615.jpg",
+    "https://i.ibb.co/qF7qbhsP/IMG20260608121002.jpg",
+    "https://i.ibb.co/zVFkdHMJ/IMG20260608121006.jpg",
+    "https://i.ibb.co/8C4Q1cT/IMG20260608121014.jpg",
+    "https://i.ibb.co/PGjF0PcL/IMG20260608135623.jpg",
+    "https://i.ibb.co/Y4BR7HnY/IMG20260608140048.jpg",
+    "https://i.ibb.co/DDzdKkhw/IMG20260608140355.jpg",
+    "https://i.ibb.co/PvpZGXtf/IMG20260608140347.jpg", 
+    "https://i.ibb.co/LXWVJ1Z3/IMG20260608171016-01.jpg",
+    "https://i.ibb.co/0RyHZ08c/IMG20260608175037.jpg",
+    "https://i.ibb.co/hRGmztk5/IMG20260608175845.jpg",
+    "https://i.ibb.co/Fk2g3jyj/IMG20260608175908.jpg",
+    "https://i.ibb.co/TxBTpp3f/IMG20260608175921.jpg",
+    "https://i.ibb.co/hxHmZZPs/IMG20260608175926.jpg",
+    "https://i.ibb.co/BFnqryV/IMG20260608175959.jpg",
+    "https://i.ibb.co/1JTCqWPN/IMG20260608180331.jpg",
+    "https://i.ibb.co/0jsVs3n6/IMG20260330142412.jpg",
+    "https://i.ibb.co/Kxn0DyPS/IMG20260330142711.jpg"
+];
+
+function typePrivateText(text, el, callback) {
+    let i = 0;
+    el.innerHTML = '<span class="cursor-type"></span>';
+    let interval = setInterval(() => {
+        el.innerHTML = text.substring(0, i+1) + '<span class="cursor-type"></span>';
+        i++;
+        if (i >= text.length) {
+            clearInterval(interval);
+            el.innerHTML = text;
+            if (callback) setTimeout(callback, 500);
+        }
+    }, 100);
+}
+
+function populatePrivateGallery() {
+    const pGrid = document.getElementById('private-gallery-grid');
+    pGrid.innerHTML = '';
+    privatePhotos.forEach((src, idx) => {
+        const card = document.createElement('div');
+        card.className = 'private-photo-card magnetic';
+        card.innerHTML = `<img src="${src}" alt="Private Memory ${idx+1}" loading="lazy">`;
+        
+        // 3D Tilt Effect for Private Cards
+        card.addEventListener('mousemove', e => {
+            const r = card.getBoundingClientRect();
+            const x = e.clientX - r.left - r.width / 2;
+            const y = e.clientY - r.top - r.height / 2;
+            card.style.transform = `translateY(-10px) scale(1.03) perspective(1000px) rotateY(${x / 20}deg) rotateX(${-y / 20}deg)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+
+        card.addEventListener('click', () => openPrivateLightbox(src));
+        pGrid.appendChild(card);
+    });
+}
+
+// Simple Lightbox for Private Photos
+const privateLightbox = document.createElement('div');
+privateLightbox.className = 'lightbox';
+privateLightbox.id = 'private-lightbox';
+privateLightbox.innerHTML = `<div class="lightbox-close" id="private-lightbox-close"><i class="fas fa-times"></i></div><img src="" alt="" id="private-lightbox-img">`;
+document.body.appendChild(privateLightbox);
+const pLightboxImg = document.getElementById('private-lightbox-img');
+const pLightboxClose = document.getElementById('private-lightbox-close');
+
+function openPrivateLightbox(src) {
+    pLightboxImg.src = src;
+    privateLightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+pLightboxClose.addEventListener('click', () => {
+    privateLightbox.classList.remove('active');
+    document.body.style.overflow = '';
+});
+privateLightbox.addEventListener('click', e => {
+    if(e.target === privateLightbox) {
+        privateLightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
+document.querySelectorAll('.vault-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        const val=btn.dataset.val;
+        if(val==='clear'){
+            pinInput="";
+            pinDisplay.innerText="";
+            vaultMsg.innerText="";
+        } else if(val==='enter'){
+            if(pinInput===correctPin){
+                vaultUI.classList.add('vault-success');
+                vaultMsg.style.color='var(--terminal-green)';
+                vaultMsg.innerText="Access Granted. Unlocking secrets...";
+                setTimeout(()=>{
+                    vaultUI.style.display='none';
+                    privateArea.classList.add('active');
+                    launchConfetti();
+                    if(!vaultUnlocked){
+                        vaultUnlocked=true;
+                        typePrivateText("amar sona bou 💍❤️", document.getElementById('private-title-1'), () => {
+                            typePrivateText("I love you ginni 🥰", document.getElementById('private-title-2'), null);
+                        });
+                        populatePrivateGallery();
+                    }
+                }, 1000);
+            } else {
+                vaultUI.classList.add('vault-shake');
+                vaultMsg.innerText="Access Denied! Wrong PIN.";
+                setTimeout(()=>{
+                    vaultUI.classList.remove('vault-shake');
+                    pinInput="";
+                    pinDisplay.innerText="";
+                    vaultMsg.innerText="";
+                }, 1000);
+            }
+        } else {
+            if(pinInput.length<8){
+                pinInput+=val;
+                pinDisplay.innerText+='*';
+            }
+        }
+    });
+});
 
 const sections=document.querySelectorAll('section');const navLinks=document.querySelectorAll('.nav-dropdown a');const timelineMain=document.getElementById('timeline-main');const timelineItems=document.querySelectorAll('.timeline-item');
 const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');let id=entry.target.id;navLinks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')===`#${id}`)l.classList.add('active')})}})},{threshold:0.2,rootMargin:'0px 0px -50px 0px'});
@@ -568,7 +850,7 @@ fullscreenBtn.addEventListener('click',()=>{if(!document.fullscreenElement){docu
 document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement)fullscreenIcon.className='fas fa-expand'});
 
 const cursorDot=document.querySelector('.cursor-dot');const cursorOutline=document.querySelector('.cursor-outline');let mouseX=0,mouseY=0,outlineX=0,outlineY=0;
-if(window.innerWidth>768){window.addEventListener('mousemove',e=>{mouseX=e.clientX;mouseY=e.clientY;cursorDot.style.left=mouseX+'px';cursorDot.style.top=mouseY+'px'});function animCursor(){outlineX+=(mouseX-outlineX)*0.15;outlineY+=(mouseY-outlineY)*0.15;cursorOutline.style.left=outlineX+'px';cursorOutline.style.top=outlineY+'px';requestAnimationFrame(animCursor)}animCursor();document.querySelectorAll('.magnetic').forEach(m=>{m.addEventListener('mousemove',e=>{const r=m.getBoundingClientRect();m.style.transform=`translate(${(e.clientX-r.left-r.width/2)*0.3}px,${(e.clientY-r.top-r.height/2)*0.3}px)`});m.addEventListener('mouseleave',()=>m.style.transform='translate(0, 0)')});document.querySelectorAll('a, button, .polaroid, .info-card, .countdown-item, .lightbox-close, .gift-box, .terminal-window, .envelope-wrapper, .letter-close, .music-toggle, .scroll-top-btn, .fullscreen-btn, .memory-card, .writing-card, .menu-toggle, .nav-logo, .nav-dropdown a, .lightbox-nav').forEach(el=>{el.addEventListener('mouseenter',()=>cursorOutline.classList.add('hover-grow'));el.addEventListener('mouseleave',()=>cursorOutline.classList.remove('hover-grow'))})}else{cursorDot.style.display='none';cursorOutline.style.display='none';document.body.style.cursor='auto'}
+if(window.innerWidth>768){window.addEventListener('mousemove',e=>{mouseX=e.clientX;mouseY=e.clientY;cursorDot.style.left=mouseX+'px';cursorDot.style.top=mouseY+'px'});function animCursor(){outlineX+=(mouseX-outlineX)*0.15;outlineY+=(mouseY-outlineY)*0.15;cursorOutline.style.left=outlineX+'px';cursorOutline.style.top=outlineY+'px';requestAnimationFrame(animCursor)}animCursor();document.querySelectorAll('.magnetic').forEach(m=>{m.addEventListener('mousemove',e=>{const r=m.getBoundingClientRect();m.style.transform=`translate(${(e.clientX-r.left-r.width/2)*0.3}px,${(e.clientY-r.top-r.height/2)*0.3}px)`});m.addEventListener('mouseleave',()=>m.style.transform='translate(0, 0)')});document.querySelectorAll('a, button, .polaroid, .info-card, .countdown-item, .lightbox-close, .gift-box, .terminal-window, .envelope-wrapper, .letter-close, .music-toggle, .scroll-top-btn, .fullscreen-btn, .memory-card, .writing-card, .menu-toggle, .nav-logo, .nav-dropdown a, .lightbox-nav, .vault-btn, .private-photo-card').forEach(el=>{el.addEventListener('mouseenter',()=>cursorOutline.classList.add('hover-grow'));el.addEventListener('mouseleave',()=>cursorOutline.classList.remove('hover-grow'))})}else{cursorDot.style.display='none';cursorOutline.style.display='none';document.body.style.cursor='auto'}
 function add3DTilt(id){const el=document.getElementById(id);if(!el||window.innerWidth<768)return;el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();el.style.transform=`perspective(1000px) rotateX(${(e.clientY-r.top-r.height/2)/25}deg) rotateY(${(r.width/2-(e.clientX-r.left))/25}deg) scale(1.02)`});el.addEventListener('mouseleave',()=>el.style.transform='')}
 add3DTilt('about-portrait');add3DTilt('hobby-card');add3DTilt('hero-img');
 document.querySelectorAll('.writing-card').forEach(item=>{item.addEventListener('mousemove',e=>{const r=item.getBoundingClientRect();item.style.transform=`translateY(-10px) perspective(1000px) rotateX(${((e.clientY-r.top-r.height/2)/(r.height/2))*-15}deg) rotateY(${((e.clientX-r.left-r.width/2)/(r.width/2))*15}deg) scale(1.05)`});item.addEventListener('mouseleave',()=>item.style.transform='')});
