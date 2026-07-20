@@ -48,8 +48,9 @@ nav{position:fixed;top:20px;right:30px;left:auto;transform:none;width:auto;max-w
 .nav-dropdown a:hover::after,.nav-dropdown a.active::after{width:60%}
 section{padding:7rem 2rem;position:relative;z-index:2}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:500;text-align:center;margin-bottom:0.5rem;background:linear-gradient(90deg,#fff,#ffd700,#87CEEB,#fff);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:1px;animation:liquidGradient 6s linear infinite}
-@keyframes liquidGradient{0%{background-position:0% center}100%{background-position:300% center}}
 .section-subtitle{text-align:center;font-family:'Hind Siliguri',sans-serif;color:var(--sky-soft);margin-bottom:4rem;font-size:1.1rem;font-weight:300;letter-spacing:1px}
+.multi-text{background:linear-gradient(90deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3,#feca57);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:liquidGradient 6s linear infinite;font-weight:600}
+
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding-top:8rem}
 .hero-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--gold);letter-spacing:4px;text-transform:uppercase;margin-bottom:1rem;opacity:0.8}
 .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:600;background:linear-gradient(135deg,#ffffff 0%,#ffd700 50%,#ffffff 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem;letter-spacing:2px;line-height:1.1;animation:shimmerText 4s linear infinite}
@@ -80,6 +81,7 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 @keyframes celebrationPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 .scroll-indicator{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:var(--gold-bright);font-size:1.3rem;animation:bounce 2s ease-in-out infinite;opacity:0.7;text-decoration:none}
 @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(15px)}}
+
 .about{max-width:1200px;margin:0 auto}
 .about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:center}
 .about-portrait-wrapper{perspective:1000px}
@@ -95,7 +97,8 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .info-card-icon{width:55px;height:55px;min-width:55px;background:linear-gradient(135deg,rgba(212,175,55,0.2),rgba(255,215,0,0.1));border:1px solid rgba(212,175,55,0.4);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--gold-bright);font-size:1.3rem}
 .info-card-label{font-size:0.7rem;color:var(--sky-soft);letter-spacing:2px;text-transform:uppercase;margin-bottom:0.3rem}
 .info-card-value{font-size:1.15rem;color:var(--white);font-weight:500}
-.info-card-caption{font-family:'Galada',cursive;font-size:1rem;color:var(--gold-bright);margin-top:0.4rem;line-height:1.5}
+.info-card-caption{font-family:'Hind Siliguri',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.8);margin-top:0.4rem;line-height:1.5}
+
 .life-counter-section{max-width:1000px;margin:0 auto}
 .terminal-window{background:rgba(5,10,20,0.85);border:1px solid rgba(0,255,157,0.3);border-radius:16px;box-shadow:0 0 50px rgba(0,255,157,0.1),inset 0 0 20px rgba(0,0,0,0.5);overflow:hidden;backdrop-filter:blur(20px);position:relative}
 .terminal-window::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,255,157,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,157,0.03) 1px,transparent 1px);background-size:20px 20px;pointer-events:none}
@@ -121,6 +124,7 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .total-lbl{font-size:0.75rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1px;margin-top:0.3rem;display:block}
 .heartbeat-icon{color:#ff4d4d;font-size:1.2rem;margin-bottom:0.5rem;animation:heartBeat 0.85s infinite}
 @keyframes heartBeat{0%,100%{transform:scale(1)}15%{transform:scale(1.3)}30%{transform:scale(1)}45%{transform:scale(1.15)}60%{transform:scale(1)}}
+
 .timeline-section{max-width:900px;margin:0 auto}.timeline{position:relative;padding:2rem 0}
 .timeline::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:2px;height:0;background:linear-gradient(to bottom,var(--gold-bright),var(--sapphire));transition:height 1.5s ease}
 .timeline.active::before{height:100%}
@@ -135,11 +139,12 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .timeline-content{background:var(--glass-bg);border:1px solid var(--glass-border);padding:1.5rem;border-radius:15px;backdrop-filter:blur(10px);transition:transform 0.3s ease,box-shadow 0.3s ease;transform-style:preserve-3d}
 .timeline-content:hover{transform:translateY(-5px) rotateX(5deg) scale(1.02);box-shadow:0 15px 40px rgba(0,0,0,0.4)}
 .timeline-date{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold-bright);font-style:italic;margin-bottom:0.5rem}
-.timeline-text{font-family:'Hind Siliguri',sans-serif;color:rgba(255,255,255,0.8);line-height:1.6}
+.timeline-text{font-family:'Hind Siliguri',sans-serif;color:rgba(255,255,255,0.85);line-height:1.6}
+
 .memory-vault,.writings-section{max-width:1000px;margin:0 auto}
 .memory-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-top:3rem}
 .memory-card{background:var(--glass-bg);backdrop-filter:blur(15px);border:1px solid var(--glass-border);border-radius:20px;padding:2.5rem 1.5rem;text-align:center;cursor:none;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);position:relative;overflow:hidden;transform-style:preserve-3d;animation:floatCard 6s ease-in-out infinite;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
-.memory-card:nth-child(2){animation-delay:1s}.memory-card:nth-child(3){animation-delay:2s}.memory-card:nth-child(4){animation-delay:3s}.memory-card:nth-child(5){animation-delay:4s}.memory-card:nth-child(6){animation-delay:0.5s}
+.memory-card:nth-child(2){animation-delay:1s}.memory-card:nth-child(3){animation-delay:2s}.memory-card:nth-child(4){animation-delay:3s}
 @keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .memory-card::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(to right,transparent,rgba(255,255,255,0.2),transparent);transform:skewX(-25deg);transition:0.7s;z-index:1}
 .memory-card:hover{border-color:var(--gold);box-shadow:0 15px 40px rgba(0,0,0,0.5),0 0 30px rgba(255,215,0,0.2);transform:translateY(-15px) scale(1.03)}
@@ -158,6 +163,7 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .memory-date-stamp,.writing-title{font-family:'Cormorant Garamond',serif;font-size:2rem;color:#5a3e1b;border-bottom:2px solid #d4af37;padding-bottom:1rem;margin-bottom:1.5rem;font-style:italic;letter-spacing:1px;text-shadow:1px 1px 0px rgba(255,255,255,0.5)}
 .writing-author{font-family:'Hind Siliguri',sans-serif;font-size:1rem;color:#8b4513;margin-bottom:1.5rem;font-style:italic;font-weight:600}
 .memory-text,.writing-text{font-family:'Hind Siliguri',sans-serif;font-size:1.2rem;color:#4a3520;line-height:2.6;white-space:pre-line;background:rgba(255,255,255,0.6);padding:1.5rem;border-radius:8px;text-shadow:0px 0px 1px rgba(255,255,255,0.8)}
+
 .hobby{max-width:1200px;margin:0 auto}
 .hobby-card{position:relative;border-radius:30px;overflow:hidden;min-height:550px;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);border:1px solid rgba(212,175,55,0.3);transition:transform 0.4s ease;transform-style:preserve-3d}
 .hobby-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.35) saturate(1.2);transition:transform 8s ease}
@@ -175,6 +181,7 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .music-bar{width:5px;background:linear-gradient(to top,var(--gold),var(--gold-bright));border-radius:5px;animation:musicBars 1.2s ease-in-out infinite;box-shadow:0 0 10px rgba(255,215,0,0.5)}
 .music-bar:nth-child(1){animation-delay:0s;height:30%}.music-bar:nth-child(2){animation-delay:0.2s;height:70%}.music-bar:nth-child(3){animation-delay:0.4s;height:100%}.music-bar:nth-child(4){animation-delay:0.6s;height:50%}.music-bar:nth-child(5){animation-delay:0.3s;height:85%}.music-bar:nth-child(6){animation-delay:0.5s;height:40%}.music-bar:nth-child(7){animation-delay:0.1s;height:65%}.music-bar:nth-child(8){animation-delay:0.35s;height:90%}.music-bar:nth-child(9){animation-delay:0.55s;height:45%}
 @keyframes musicBars{0%,100%{transform:scaleY(0.4)}50%{transform:scaleY(1)}}
+
 .letter-section{max-width:800px;margin:0 auto;text-align:center}
 .envelope-wrapper{perspective:1000px;margin:3rem auto;width:400px;max-width:100%;cursor:none;animation:floatEnvelope 4s ease-in-out infinite}
 @keyframes floatEnvelope{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
@@ -186,17 +193,22 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .envelope:hover .envelope-icon{transform:translate(-50%,-50%) scale(1.1)}
 .wax-seal{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);width:60px;height:60px;background:radial-gradient(circle at 30% 30%,#ff4d4d,#8b0000);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#ffd700;font-family:'Dancing Script';font-size:1.5rem;font-weight:700;z-index:3;box-shadow:0 4px 10px rgba(0,0,0,0.5),inset 0 2px 5px rgba(255,255,255,0.2);border:2px solid #b30000}
 .envelope-text{position:absolute;bottom:15px;width:100%;text-align:center;font-family:'Dancing Script',cursive;font-size:1.2rem;color:var(--gold-bright);z-index:2;letter-spacing:1px}
+
 .letter-popup{position:fixed;inset:0;background:rgba(5,10,20,0.95);backdrop-filter:blur(15px);display:flex;justify-content:center;align-items:center;z-index:1001;padding:2rem;opacity:0;visibility:hidden;transition:opacity 0.4s ease,visibility 0.4s ease}
 .letter-popup.active{opacity:1;visibility:visible}
-.letter-paper{background:linear-gradient(to bottom,#fdfbf7,#f8f5e8);color:#4a3b2a;padding:2.5rem 2rem;border-radius:8px;max-width:500px;width:100%;max-height:80vh;overflow-y:auto;box-shadow:0 0 60px rgba(255,215,0,0.2),0 20px 50px rgba(0,0,0,0.5);transform:scale(0.8) rotateY(10deg);transition:transform 0.5s cubic-bezier(0.175,0.885,0.32,1.275);position:relative;border:1px solid #e6dfc7;background-image:repeating-linear-gradient(transparent,transparent 29px,#e8e0c9 30px)}
+.letter-paper{background:#fdfbf7;color:#4a3b2a;padding:0;border-radius:12px;max-width:600px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 0 60px rgba(255,215,0,0.3),0 20px 50px rgba(0,0,0,0.5);transform:scale(0.8) rotateY(10deg);transition:transform 0.5s cubic-bezier(0.175,0.885,0.32,1.275);position:relative;border:8px solid #d4af37}
 .letter-popup.active .letter-paper{transform:scale(1) rotateY(0deg)}
-.letter-close{position:absolute;top:10px;right:10px;background:#8b0000;color:#fff;width:35px;height:35px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:none;border:none;transition:transform 0.3s,background 0.3s;box-shadow:0 2px 5px rgba(0,0,0,0.2);z-index:10}
+.letter-close{position:absolute;top:15px;right:15px;background:#8b0000;color:#fff;width:35px;height:35px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:none;border:none;transition:transform 0.3s,background 0.3s;box-shadow:0 2px 5px rgba(0,0,0,0.2);z-index:20}
 .letter-close:hover{transform:rotate(90deg);background:#b30000}
-.letter-header{text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:#8b4513;border-bottom:2px solid #d4af37;padding-bottom:0.8rem;margin-bottom:1.2rem;font-style:italic}
-.letter-content{font-family:'Hind Siliguri',sans-serif;line-height:2.2;font-size:1.05rem;position:relative;z-index:2}
-.letter-poem{font-family:'Galada',cursive;font-size:1.15rem;color:#5a4632;margin:1.2rem 0;text-align:center;line-height:2}
+.letter-photo-frame{width:100%;height:250px;overflow:hidden;border-bottom:4px solid #d4af37}
+.letter-photo-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease}
+.letter-photo-frame:hover img{transform:scale(1.05)}
+.letter-header{text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#8b4513;padding:1.5rem 1rem 0.5rem;margin:0 2rem 1rem;border-bottom:2px solid #d4af37;font-style:italic}
+.letter-content{font-family:'Hind Siliguri',sans-serif;line-height:2.2;font-size:1.05rem;position:relative;z-index:2;text-align:left;padding:0 2rem 2rem;background-image:repeating-linear-gradient(transparent,transparent 29px,#e8e0c9 30px)}
+.letter-poem{font-family:'Galada',cursive;font-size:1.15rem;color:#5a4632;margin:1.2rem 0;text-align:center;line-height:2;background:rgba(212,175,55,0.1);padding:1rem;border-radius:8px}
 .letter-content p{margin-bottom:1rem;color:#4a3b2a}
 .letter-signature{margin-top:1.5rem;text-align:right;font-family:'Dancing Script';font-size:1.6rem;color:#8b4513}
+
 .surprise-section{text-align:center;padding:4rem 2rem}
 .gift-box{width:120px;height:120px;margin:2rem auto;cursor:none;position:relative;perspective:1000px;transition:transform 0.3s ease;display:inline-block}
 .gift-box:hover{transform:scale(1.1)}
@@ -204,7 +216,8 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .gift-box.opened i{transform:rotate(180deg) scale(0.8)}
 .surprise-text{max-width:600px;margin:2rem auto 0;font-family:'Galada',cursive;font-size:1.5rem;color:var(--sky-soft);opacity:0;transform:translateY(20px);transition:all 0.5s ease}
 .surprise-text.visible{opacity:1;transform:translateY(0)}
-.gallery{max-width:1400px;margin:0 auto;position:relative}
+
+.gallery{max-width:1600px;margin:0 auto;position:relative}
 .gallery-header{display:flex;flex-direction:column;align-items:center;position:relative;margin-bottom:1rem}
 .holographic-timer{width:60px;height:60px;position:absolute;right:10px;top:10px;display:flex;align-items:center;justify-content:center}
 .holographic-timer svg{width:100%;height:100%;transform:rotate(-90deg)}
@@ -212,16 +225,15 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .timer-track{stroke:rgba(255,255,255,0.1)}
 .timer-progress{stroke:var(--gold-bright);stroke-dasharray:175.93;stroke-dashoffset:0;filter:drop-shadow(0 0 5px var(--gold-bright));animation:countdown 10s linear infinite}
 @keyframes countdown{from{stroke-dashoffset:0}to{stroke-dashoffset:175.93}}
-/* PERFECT LARGE RESPONSIVE GRID */
-.scrapbook-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;padding:2rem 0;perspective:1200px;transform-style:preserve-3d}
-@media(max-width:968px){.scrapbook-grid{grid-template-columns:repeat(2,1fr);gap:2rem}}
-@media(max-width:600px){.scrapbook-grid{grid-template-columns:1fr;gap:1.5rem}}
-.polaroid{--tilt-x:0deg;--tilt-y:0deg;--base-rotate:0deg;background:#fff;padding:20px 20px 50px 20px;transition:transform 1s cubic-bezier(0.23,1,0.32,1),box-shadow 0.4s ease,opacity 1s ease;position:relative;cursor:none;z-index:1;border-radius:6px;transform:rotate(var(--base-rotate,0deg)) perspective(800px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));will-change:transform,opacity}
+
+.scrapbook-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));gap:3.5rem;padding:2rem 0;perspective:1200px;transform-style:preserve-3d}
+@media(max-width:768px){.scrapbook-grid{grid-template-columns:1fr;gap:2.5rem}}
+.polaroid{--tilt-x:0deg;--tilt-y:0deg;--base-rotate:0deg;background:#fff;padding:12px 12px 25px 12px;transition:transform 1s cubic-bezier(0.23,1,0.32,1),box-shadow 0.4s ease,opacity 1s ease;position:relative;cursor:none;z-index:1;border-radius:6px;transform:rotate(var(--base-rotate,0deg)) perspective(800px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));will-change:transform,opacity}
 .polaroid-img-wrapper{position:relative;overflow:hidden;line-height:0;border-radius:4px;box-shadow:0 4px 10px rgba(0,0,0,0.2)}
-.polaroid img{width:100%;height:100%;aspect-ratio:1/1;object-fit:cover;display:block;filter:saturate(1.2) contrast(1.1);transition:filter 0.4s ease}
-.polaroid-caption{font-family:'Dancing Script',cursive;font-size:1.4rem;color:#555;text-align:center;margin-top:15px;line-height:1;height:30px;overflow:hidden}
-.polaroid:hover{z-index:10;box-shadow:0 30px 60px rgba(0,0,0,0.7)}
-.polaroid:hover img{filter:saturate(1.5) contrast(1.2) brightness(1.05)}
+.polaroid img{width:100%;height:100%;aspect-ratio:9/16;object-fit:cover;display:block;filter:saturate(1.2) contrast(1.1);transition:filter 0.4s ease, transform 0.5s ease}
+.polaroid-caption{font-family:'Hind Siliguri',sans-serif;font-size:0.9rem;color:#444;text-align:center;margin-top:8px;line-height:1.2;height:25px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-weight:500}
+.polaroid:hover{z-index:10;box-shadow:0 30px 60px rgba(0,0,0,0.7),0 0 50px rgba(255, 215, 0, 0.4)}
+.polaroid:hover img{filter:saturate(1.5) contrast(1.2) brightness(1.05);transform:scale(1.08)}
 .polaroid-img-wrapper::after{content:'';position:absolute;top:0;left:-150%;width:80%;height:100%;background:linear-gradient(to right,transparent,rgba(255,255,255,0.6),transparent);transform:skewX(-25deg);transition:0.7s;z-index:3;pointer-events:none}
 .polaroid:hover .polaroid-img-wrapper::after{left:150%}
 .polaroid:nth-child(6n+1){--base-rotate:-3deg;border:8px solid #FFD700;box-shadow:inset 0 0 10px rgba(255,215,0,0.3),0 0 15px rgba(255,215,0,0.4),0 10px 25px rgba(0,0,0,0.5)}
@@ -236,6 +248,7 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .polaroid:nth-child(6n+5):hover{box-shadow:inset 0 0 20px rgba(255,69,0,0.5),0 0 40px rgba(255,69,0,0.9),0 20px 40px rgba(0,0,0,0.7)}
 .polaroid:nth-child(6n+6){--base-rotate:1deg;border:8px solid #9370DB;box-shadow:inset 0 0 10px rgba(147,112,219,0.3),0 0 15px rgba(147,112,219,0.4),0 10px 25px rgba(0,0,0,0.5)}
 .polaroid:nth-child(6n+6):hover{box-shadow:inset 0 0 20px rgba(147,112,219,0.5),0 0 40px rgba(147,112,219,0.9),0 20px 40px rgba(0,0,0,0.7)}
+
 .lightbox{position:fixed;inset:0;background:rgba(5,10,20,0.97);backdrop-filter:blur(15px);display:flex;justify-content:center;align-items:center;z-index:1000;padding:2rem;opacity:0;visibility:hidden;transition:opacity 0.3s ease,visibility 0.3s ease}
 .lightbox.active{opacity:1;visibility:visible}
 .lightbox img{max-width:90%;max-height:85vh;border-radius:12px;border:3px solid var(--gold);box-shadow:0 0 80px rgba(255,215,0,0.5);animation:lightboxZoom 0.4s ease}
@@ -245,11 +258,13 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);color:#fff;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:none;transition:all 0.3s ease;font-size:1.5rem;z-index:1001;border:1px solid rgba(255,255,255,0.2)}
 .lightbox-nav:hover{background:var(--gold);color:#000}
 .lightbox-prev{left:2rem}.lightbox-next{right:2rem}
+
 footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;background:linear-gradient(to bottom,transparent,rgba(5,10,20,0.6));margin-top:3rem}
 .footer-quote{font-family:'Galada',cursive;font-size:clamp(1.3rem,3vw,1.9rem);color:var(--gold-bright);line-height:2.2;max-width:800px;margin:0 auto 2rem;text-shadow:0 0 30px rgba(255,215,0,0.3)}
 .footer-line{width:120px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:2.5rem auto}
 .footer-credit{font-size:0.85rem;color:rgba(255,255,255,0.6);font-weight:300;letter-spacing:3px;text-transform:uppercase}
 .footer-credit span{color:var(--gold-bright);font-weight:500}
+
 .fade-in{opacity:0;transform:translateY(40px);transition:opacity 1s ease,transform 1s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 .confetti{position:fixed;pointer-events:none;z-index:9999;animation:confettiFall linear forwards}
@@ -260,6 +275,7 @@ footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;back
 .divider-line{width:60px;height:1px;background:linear-gradient(to right,transparent,var(--gold))}
 .divider-line:last-child{background:linear-gradient(to left,transparent,var(--gold))}
 .divider-star{color:var(--gold-bright);font-size:0.8rem}
+
 .music-player-wrapper{position:fixed !important;bottom:30px !important;right:30px !important;top:auto !important;left:auto !important;z-index:99;display:flex;align-items:center;gap:15px;transition:transform 0.3s ease}
 .music-iframe-container{width:0;height:40px;overflow:hidden;border-radius:20px;border:1px solid var(--gold);transition:width 0.4s ease,padding 0.4s ease;background:rgba(5,10,20,0.9);backdrop-filter:blur(10px);display:flex;align-items:center}
 .music-player-wrapper.active .music-iframe-container{width:300px;padding:0 10px}
@@ -274,6 +290,7 @@ footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;back
 .scroll-top-btn i,.fullscreen-btn i{color:var(--gold-bright);transition:color 0.3s;font-size:1.1rem}
 .scroll-top-btn:hover i,.fullscreen-btn:hover i{color:var(--royal-deep)}
 .fullscreen-btn{bottom:90px}
+
 @media(max-width:968px){.about-grid{grid-template-columns:1fr;gap:2.5rem}.about-portrait{max-width:450px;margin:0 auto}.elapsed-grid{grid-template-columns:repeat(3,1fr)}.timeline-item{width:100%;left:0 !important;text-align:left !important;padding-left:2rem}.timeline-item .timeline-dot{left:-8px !important;right:auto !important}.timeline::before{left:0;transform:translateX(0)}}
 @media(max-width:768px){body{cursor:auto}.cursor-dot,.cursor-outline{display:none}nav{padding:0.5rem 1.2rem;top:15px;right:15px}section{padding:5rem 1.2rem}.countdown-item{min-width:75px;padding:0.8rem 0.7rem}.countdown-number{font-size:2rem}.hobby-card{min-height:450px}.lightbox-close{top:1rem;right:1rem;width:40px;height:40px;font-size:1.2rem}.info-card{padding:1rem 1.1rem}.totals-grid{grid-template-columns:repeat(2,1fr)}.music-player-wrapper.active .music-iframe-container{width:250px}.scroll-top-btn,.fullscreen-btn{bottom:80px;left:20px}.fullscreen-btn{bottom:140px}.writing-paper{padding:2rem 1.5rem}.nav-dropdown{right:15px;top:75px;width:180px;padding:1.2rem 0.8rem}.nav-dropdown a{font-size:1.1rem}}
 @media(max-width:480px){.countdown-timer{gap:0.5rem}.countdown-item{min-width:65px;padding:0.7rem 0.4rem}.countdown-number{font-size:1.6rem}.elapsed-grid{grid-template-columns:repeat(2,1fr)}}
@@ -302,7 +319,7 @@ footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;back
 <section class="hero" id="hero">
   <p class="hero-tagline">— A Birthday Surprise —</p>
   <h1 class="hero-title">Rai's Magical 18th Chapter</h1>
-  <p class="hero-subtitle">Welcome to the digital stardust created just for you.</p>
+  <p class="hero-subtitle">Welcome to the digital stardust created just for you. ❤️😘</p>
   <div class="hero-image-wrapper" id="hero-img-wrapper"><img src="https://i.ibb.co/ymHZpn7x/Whats-App-Image-2026-07-09-at-01-15-29.jpg" alt="Rai" class="hero-image" id="hero-img"></div>
   <p class="hero-poem" id="poem-text"></p>
   <div class="countdown-container" id="countdown-container">
@@ -322,14 +339,14 @@ footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;back
 <section class="about" id="about">
   <h2 class="section-title fade-in">The Girl Who Glows</h2>
   <div class="divider fade-in"><div class="divider-line"></div><span class="divider-star">✦</span><div class="divider-line"></div></div>
-  <p class="section-subtitle fade-in">আমার ছোট্ট জগতের আলো</p>
+  <p class="section-subtitle fade-in"><span class="multi-text">আমার ছোট্ট জগতের আলো ❤️🥰</span></p>
   <div class="about-grid fade-in">
     <div class="about-portrait-wrapper"><div class="about-portrait" id="about-portrait"><img src="https://i.ibb.co/bMwWRBWT/IMG20260608111007.jpg" alt="Rai Portrait"></div></div>
     <div class="about-details">
-      <h2>A soul woven with starlight & songs ✨</h2>
+      <h2>A soul woven with starlight & songs ✨💕</h2>
       <p class="about-poem">তোমার হাসিতে যেন রোদের আলো ছড়ায়,<br>এই ওয়েবসাইটের পাতায় পাতায় শুধু তোমার গল্প কথা কয়।</p>
       <div class="about-info">
-        <div class="info-card"><div class="info-card-icon"><i class="fas fa-graduation-cap"></i></div><div class="info-card-content"><div class="info-card-label">Scholarship</div><div class="info-card-value">12th Standard Scholar</div><div class="info-card-caption">বোর্ড প্রস্তুতির এই পথে প্রতিটি পদক্ষেপ তোমাকে আরও দূরে নিয়ে যাচ্ছে।</div></div></div>
+        <div class="info-card"><div class="info-card-icon"><i class="fas fa-graduation-cap"></i></div><div class="info-card-content"><div class="info-card-label">Scholarship</div><div class="info-card-value">12th Standard Scholar 🎓</div><div class="info-card-caption">বোর্ড প্রস্তুতির এই পথে প্রতিটি পদক্ষেপ তোমাকে আরও দূরে নিয়ে যাচ্ছে।</div></div></div>
         <div class="info-card"><div class="info-card-icon"><i class="fas fa-utensils"></i></div><div class="info-card-content"><div class="info-card-label">Heart's Menu</div><div class="info-card-value">Biriyani Lover 🍛</div><div class="info-card-caption">হৃদয়ের রাস্তা নাকি বিরিয়ানির প্লেট হয়ে যায়!</div></div></div>
         <div class="info-card"><div class="info-card-icon"><i class="fas fa-palette"></i></div><div class="info-card-content"><div class="info-card-label">Signature Vibe</div><div class="info-card-value">Royal Blue 💙</div><div class="info-card-caption">গভীরতার রং, শান্তির রং — যেন তোমারই চোখের রঙ।</div></div></div>
       </div>
@@ -340,7 +357,7 @@ footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;back
 <section class="life-counter-section" id="life-counter">
   <h2 class="section-title fade-in">Chronicles of Time</h2>
   <div class="divider fade-in"><div class="divider-line"></div><span class="divider-star">✦</span><div class="divider-line"></div></div>
-  <p class="section-subtitle fade-in">প্রতিটি সেকেন্ডের হিসাব — The exact measurement of existence</p>
+  <p class="section-subtitle fade-in"><span class="multi-text">প্রতিটি সেকেন্ডের হিসাব — The exact measurement of existence ⏳💕</span></p>
   <div class="terminal-window fade-in">
     <div class="terminal-header">
       <div class="terminal-dots"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div></div>
@@ -372,35 +389,36 @@ footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;back
 <section class="timeline-section" id="journey">
   <h2 class="section-title fade-in">Our Journey</h2>
   <div class="divider fade-in"><div class="divider-line"></div><span class="divider-star">✦</span><div class="divider-line"></div></div>
-  <p class="section-subtitle fade-in">স্মৃতির পাতায় পাতায় আমাদের গল্প — The timeline of us</p>
+  <p class="section-subtitle fade-in"><span class="multi-text">স্মৃতির পাতায় পাতায় আমাদের গল্প — The timeline of us ❤️😘</span></p>
   <div class="timeline" id="timeline-main">
-    <div class="timeline-item left"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-date">The Beginning</div><div class="timeline-text">যেদিন প্রথম তোমার সাথে কথা হয়েছিল, সেদিন থেকেই যেন সময় থমকে গিয়েছিল। একটি সাধারণ দিন পরিণত হয়েছিল জীবনের সেরা অধ্যায়ে।</div></div></div>
-    <div class="timeline-item right"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-date">The First Letter</div><div class="timeline-text">তুমি প্রথম চেয়েছিলে আমার লেখা নিজের কোনো চিঠি। আমি একটু অন্যরকমভাবেই তোমাকে সেটা দিয়েছিলাম, কারণ তুমিই আমার অন্যরকম সব অনুভূতির কারণ।</div></div></div>
-    <div class="timeline-item left"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-date">মায়াপুরের সেই সন্ধ্যা</div><div class="timeline-text">রাধা-কৃষ্ণের আরতির পবিত্র আলোয় তোমার কানের কাছে কানে কানে যা বলেছিলাম, তা আজও আমার হৃদয়ে বাজে। ভিড়ের মাঝেও আমার দুনিয়া শুধু তুমি ছিলে।</div></div></div>
-    <div class="timeline-item right"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-date">Those Magical Mornings</div><div class="timeline-text">তোমাকে নিয়ে সময় কাটানো হলো জীবনের সবচেয়ে সুন্দর এক মুহূর্ত। যে সকালে তুমি ছিলে আমার কাছে, কত কিছু দেখলাম, কত কিছু বুঝলাম! হাতের ছোঁয়ায় চোখ বুজে মাথা রাখার যে জায়গা, সেটা শুধু তোমাতেই রয়ে গেল।</div></div></div>
-    <div class="timeline-item left"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-date">The Bond & Feelings</div><div class="timeline-text">চোখের পাতা বন্ধ করলে প্রতিটা মুহূর্তে চোখের সামনে এক সুন্দর অনুভূতি জাগে। যেন আবারও কানে কানে প্রতিবার শুধু তোমাকেই বলতে পারি আমার মনের কথাগুলো।</div></div></div>
-    <div class="timeline-item right"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-date">My Sunshine </div><div class="timeline-text">তিনি না চাইলে কিছুই না, তবুও ও মনে হয় তুমি আমার জীবনের সবচেয়ে সেরা মানুষ হয়ে গেছ। যাকে আর কখনো কোনোভাবে হারানোর কথা কল্পনাতেও আনতে চাই না। আমার থেকো, আমারই থেকো। আমার গিন্নি ❤️</div></div></div>
+    <div class="timeline-item left"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-date">The Beginning ❤️</div><div class="timeline-text">যেদিন প্রথম তোমার সাথে কথা হয়েছিল, সেদিন থেকেই যেন সময় থমকে গিয়েছিল। একটি সাধারণ দিন পরিণত হয়েছিল জীবনের সেরা অধ্যায়ে।</div></div></div>
+    <div class="timeline-item right"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-date">The First Letter 🥰</div><div class="timeline-text">তুমি প্রথম চেয়েছিলে আমার লেখা নিজের কোনো চিঠি। আমি একটু অন্যরকমভাবেই তোমাকে সেটা দিয়েছিলাম, কারণ তুমিই আমার অন্যরকম সব অনুভূতির কারণ।</div></div></div>
+    <div class="timeline-item left"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-date">মায়াপুরের সেই সন্ধ্যা 💕</div><div class="timeline-text">রাধা-কৃষ্ণের আরতির পবিত্র আলোয় তোমার কানের কাছে কানে কানে যা বলেছিলাম, তা আজও আমার হৃদয়ে বাজে। ভিড়ের মাঝেও আমার দুনিয়া শুধু তুমি ছিলে।</div></div></div>
+    <div class="timeline-item right"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-date">Those Magical Mornings 😘</div><div class="timeline-text">তোমাকে নিয়ে সময় কাটানো হলো জীবনের সবচেয়ে সুন্দর এক মুহূর্ত। যে সকালে তুমি ছিলে আমার কাছে, কত কিছু দেখলাম, কত কিছু বুঝলাম! হাতের ছোঁয়ায় চোখ বুজে মাথা রাখার যে জায়গা, সেটা শুধু তোমাতেই রয়ে গেল।</div></div></div>
+    <div class="timeline-item left"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-date">The Bond & Feelings ❤️</div><div class="timeline-text">চোখের পাতা বন্ধ করলে প্রতিটা মুহূর্তে চোখের সামনে এক সুন্দর অনুভূতি জাগে। যেন আবারও কানে কানে প্রতিবার শুধু তোমাকেই বলতে পারি আমার মনের কথাগুলো।</div></div></div>
+    <div class="timeline-item right"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-date">My Sunshine 🥰💕</div><div class="timeline-text">তিনি না চাইলে কিছুই না, তবুও ও মনে হয় তুমি আমার জীবনের সবচেয়ে সেরা মানুষ হয়ে গেছ। যাকে আর কখনো কোনোভাবে হারানোর কথা কল্পনাতেও আনতে চাই না। আমার থেকো, আমারই থেকো। আমার গিন্নি ❤️</div></div></div>
   </div>
 </section>
 
 <section class="memory-vault" id="vault">
   <h2 class="section-title fade-in">Locked in Time</h2>
   <div class="divider fade-in"><div class="divider-line"></div><span class="divider-star">✦</span><div class="divider-line"></div></div>
-  <p class="section-subtitle fade-in">আমাদের স্মৃতির ভল্ট — Click a date to unlock a memory</p>
+  <p class="section-subtitle fade-in"><span class="multi-text">আমাদের স্মৃতির ভল্ট — Click a date to unlock a memory 🔐❤️</span></p>
   <div class="memory-grid fade-in" id="memory-grid"></div>
 </section>
 
 <section class="writings-section" id="writings">
   <h2 class="section-title fade-in">Soulful Writings</h2>
   <div class="divider fade-in"><div class="divider-line"></div><span class="divider-star">✦</span><div class="divider-line"></div></div>
-  <p class="section-subtitle fade-in">নিজের লেখা কিছু কথা — Tap to unlock the verses</p>
+  <p class="section-subtitle fade-in"><span class="multi-text">নিজের লেখা কিছু কথা — Tap to unlock the verses 📖💕</span></p>
   <div class="memory-grid fade-in" id="writing-grid"></div>
 </section>
 
 <section class="letter-section" id="letter">
   <h2 class="section-title fade-in">A Letter For You</h2>
   <div class="divider fade-in"><div class="divider-line"></div><span class="divider-star">✦</span><div class="divider-line"></div></div>
-  <p class="section-subtitle fade-in">ক্লিক করে খুলে পড়ো — Open to read your secret message</p>
+  <p class="section-subtitle fade-in"><span class="multi-text">ক্লিক করে খুলে পড়ো — Open to read your secret message 💌🥰</span></p>
+
   <div class="envelope-wrapper fade-in" id="envelope-trigger">
     <div class="envelope magnetic"><i class="fas fa-envelope-open-text envelope-icon"></i><div class="wax-seal">R</div><div class="envelope-text">Click to Open</div></div>
   </div>
@@ -409,7 +427,7 @@ footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;back
 <section class="hobby" id="hobby">
   <h2 class="section-title fade-in">The Songbird's Soul</h2>
   <div class="divider fade-in"><div class="divider-line"></div><span class="divider-star">✦</span><div class="divider-line"></div></div>
-  <p class="section-subtitle fade-in">Where her voice becomes pure magic</p>
+  <p class="section-subtitle fade-in"><span class="multi-text">Where her voice becomes pure magic 🎶❤️</span></p>
   <div class="hobby-card fade-in" id="hobby-card">
     <img src="https://i.ibb.co/LzHCHNbW/IMG20260608111013.jpg" alt="Music" class="hobby-bg">
     <div class="hobby-content">
@@ -424,23 +442,23 @@ footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;back
 <section class="surprise-section fade-in" id="surprise">
   <h2 class="section-title">A Little Surprise</h2>
   <div class="divider"><div class="divider-line"></div><span class="divider-star">✦</span><div class="divider-line"></div></div>
-  <p class="section-subtitle">Click the box to reveal a secret</p>
+  <p class="section-subtitle"><span class="multi-text">Click the box to reveal a secret 🎁😘</span></p>
   <div class="gift-box magnetic" id="gift-box"><i class="fas fa-gift"></i></div>
-  <div class="surprise-text" id="surprise-text">তুমি শুধু একটি ব্যক্তি নও, তুমি একটি পুরো জগতের মতো। তোমার এই ১৮ বছরের যাত্রা হোক আরও সুন্দর, আরও উজ্জ্বল। 💙</div>
+  <div class="surprise-text" id="surprise-text">তুমি শুধু একটি ব্যক্তি নও, তুমি একটি পুরো জগতের মতো। তোমার এই ১৮ বছরের যাত্রা হোক আরও সুন্দর, আরও উজ্জ্বল। 💙🥰</div>
 </section>
 
 <section class="gallery" id="gallery">
   <div class="gallery-header">
     <h2 class="section-title fade-in">The Spectrum of Rai</h2>
     <div class="divider fade-in"><div class="divider-line"></div><span class="divider-star">✦</span><div class="divider-line"></div></div>
-    <p class="section-subtitle fade-in">স্মৃতির কোলাজ — A Collage of Moments</p>
+    <p class="section-subtitle fade-in"><span class="multi-text">স্মৃতির কোলাজ — A Collage of Moments 🖼️❤️💕</span></p>
     <div class="holographic-timer"><svg viewBox="0 0 60 60"><circle class="timer-track" cx="30" cy="30" r="28"></circle><circle class="timer-progress" cx="30" cy="30" r="28"></circle></svg></div>
   </div>
   <div class="scrapbook-grid" id="gallery-grid"></div>
 </section>
 
 <footer>
-  <p class="footer-quote">হাজারো নক্ষত্রের মাঝে যেন চাঁদ একটিই,<br>আমার এই ছোট্ট দুনিয়ায় তুমিই একমাত্র রানি।<br>Happy 18th, Rai. 💙</p>
+  <p class="footer-quote">হাজারো নক্ষত্রের মাঝে যেন চাঁদ একটিই,<br>আমার এই ছোট্ট দুনিয়ায় তুমিই একমাত্র রানি।<br>Happy 18th, Rai. 💙❤️😘</p>
   <div class="footer-line"></div>
   <p class="footer-credit">Handcrafted with <span>infinite love</span> ✨</p>
 </footer>
@@ -455,6 +473,9 @@ footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;back
 <div class="letter-popup" id="letter-popup">
   <div class="letter-paper">
     <button class="letter-close" id="letter-close"><i class="fas fa-times"></i></button>
+    <div class="letter-photo-frame">
+      <img src="https://i.ibb.co/3y1M0W9K/download.jpg" alt="Special Letter Frame">
+    </div>
     <div class="letter-header">A Whisper from the Heart</div>
     <div class="letter-content">
       <p>প্রিয় রাই,</p>
@@ -484,12 +505,13 @@ canvas.width=window.innerWidth;canvas.height=window.innerHeight;initStars();anim
 const poemText="আকাশের নীল আর সাগরের গভীরতা ছুঁয়ে,\nতোমার এই আঠারোর গল্প সাজালাম ভালোবেসে ধুয়ে।";const poemElement=document.getElementById('poem-text');let poemIndex=0;
 function typePoem(){if(poemIndex<poemText.length){let char=poemText.charAt(poemIndex);if(char==='\n')poemElement.innerHTML+='<br>';else poemElement.innerHTML+=char;poemIndex++;setTimeout(typePoem,50)}else{poemElement.innerHTML+='<span class="cursor-type"></span>'}}
 setTimeout(typePoem,3000);
+
 const menuToggle=document.getElementById('menu-toggle');const menuLogo=document.getElementById('menu-logo');const navDropdown=document.getElementById('nav-dropdown');
 function toggleMenu(){menuToggle.classList.toggle('open');navDropdown.classList.toggle('active')}
 menuToggle.addEventListener('click',toggleMenu);menuLogo.addEventListener('click',toggleMenu);
 document.querySelectorAll('.nav-dropdown a').forEach(link=>{link.addEventListener('click',(e)=>{e.preventDefault();menuToggle.classList.remove('open');navDropdown.classList.remove('active');const href=link.getAttribute('href');setTimeout(()=>{if(href&&href.startsWith('#')){const target=document.querySelector(href);if(target)target.scrollIntoView({behavior:'smooth'})}},400)})});
 
-const memories=[{date:"26 April 2025",text:"এই দিনটি আমাদের জীবনে এক নতুন সূর্যোদয় এনেছিল। যেদিন আমরা প্রথম বুঝতে পেরেছিলাম, আমরা কেবল বন্ধু নই, এক অপরের আত্মার অংশ। সেই দিনের প্রতিটি মুহূর্ত আমার হৃদয়ে এক অমূল্য সম্পদ হয়ে রয়ে গেছে।"},{date:"5 Nov 2025",text:"শীতের সম্ভার নিয়ে আসা এই দিনটিতে তোমার হাত ধরে হাঁটতে হাঁটতে মনে হয়েছিল, এই পথ যেন কখনো শেষ না হয়। তোমার হাসি আর কুয়াশার মাঝে আমার দুনিয়া মুখর ছিল। তুমি ছিলে আমার শীতের সকালের সবচেয়ে উষ্ণ সূর্য।"},{date:"30 March 2026",text:"বসন্তের রঙে রাঙিয়ে ওঠা এই দিনে আমরা নিজেদের ভেতরে এক নতুন বিশ্বাস খুঁজে পেয়েছিলাম। তোমার চোখে আমি আমাদের ভবিষ্যতের স্বপ্নগুলো দেখেছিলাম। প্রতিটি মুহূর্ত ছিল রাধা-কৃষ্ণের প্রেমের মতো পবিত্র ও অমলিন।"},{date:"20 April 2026",text:"সময় যেন এই দিনটিতে থমকে গিয়েছিল। তোমার সাথে কাটানো প্রতিটি সেকেন্ড জাদুকরী ছিল। কোনো কথা না বলে শুধু তোমার দিকে তাকিয়ে থাকতে ইচ্ছা করেছিল, কারণ তোমার চোখের ভাষা সব কথার চেয়ে গভীর ছিল।"},{date:"8 June 2026",text:"বৃষ্টির দিন, ভেজা পথ, আর তোমার স্পর্শ—সব মিলিয়ে এই দিনটি আমার কাছে জীবনের সেরা কবিতা হয়ে আছে। তুমি ছিলে আমার সবচেয়ে সুন্দর এক মায়াবী অনুভূতি, যাকে আমি চিরকাল আগলে রাখতে চাই।"}];
+const memories=[{date:"26 April 2025",text:"এই দিনটি আমাদের জীবনে এক নতুন সূর্যোদয় এনেছিল। যেদিন আমরা প্রথম বুঝতে পেরেছিলাম, আমরা কেবল বন্ধু নই, এক অপরের আত্মার অংশ। সেই দিনের প্রতিটি মুহূর্ত আমার হৃদয়ে এক অমূল্য সম্পদ হয়ে রয়ে গেছে। ❤️"},{date:"5 Nov 2025",text:"শীতের সম্ভার নিয়ে আসা এই দিনটিতে তোমার হাত ধরে হাঁটতে হাঁটতে মনে হয়েছিল, এই পথ যেন কখনো শেষ না হয়। তোমার হাসি আর কুয়াশার মাঝে আমার দুনিয়া মুখর ছিল। তুমি ছিলে আমার শীতের সকালের সবচেয়ে উষ্ণ সূর্য। 🥰"},{date:"30 March 2026",text:"বসন্তের রঙে রাঙিয়ে ওঠা এই দিনে আমরা নিজেদের ভেতরে এক নতুন বিশ্বাস খুঁজে পেয়েছিলাম। তোমার চোখে আমি আমাদের ভবিষ্যতের স্বপ্নগুলো দেখেছিলাম। প্রতিটি মুহূর্ত ছিল রাধা-কৃষ্ণের প্রেমের মতো পবিত্র ও অমলিন। 💕"},{date:"20 April 2026",text:"সময় যেন এই দিনটিতে থমকে গিয়েছিল। তোমার সাথে কাটানো প্রতিটি সেকেন্ড জাদুকরী ছিল। কোনো কথা না বলে শুধু তোমার দিকে তাকিয়ে থাকতে ইচ্ছা করেছিল, কারণ তোমার চোখের ভাষা সব কথার চেয়ে গভীর ছিল। 😘"},{date:"8 June 2026",text:"বৃষ্টির দিন, ভেজা পথ, আর তোমার স্পর্শ—সব মিলিয়ে এই দিনটি আমার কাছে জীবনের সেরা কবিতা হয়ে আছে। তুমি ছিলে আমার সবচেয়ে সুন্দর এক মায়াবী অনুভূতি, যাকে আমি চিরকাল আগলে রাখতে চাই। ❤️🥰"}];
 const memoryGrid=document.getElementById('memory-grid');const memoryPopup=document.getElementById('memory-popup');const memoryPaper=document.getElementById('memory-paper');const memoryClose=document.getElementById('memory-close');
 memories.forEach((mem,idx)=>{const card=document.createElement('div');card.className='memory-card magnetic';card.style.transitionDelay=`${idx*0.1}s`;card.innerHTML=`<div class="memory-lock"><i class="fas fa-lock"></i></div><div class="memory-date">${mem.date}</div><div class="memory-tap">Tap to Unlock</div>`;card.addEventListener('click',()=>{memoryPaper.querySelector('.memory-date-stamp').innerText=mem.date;memoryPaper.querySelector('.memory-text').innerText=mem.text;memoryPopup.classList.add('active')});memoryGrid.appendChild(card)});
 memoryClose.addEventListener('click',()=>memoryPopup.classList.remove('active'));memoryPopup.addEventListener('click',(e)=>{if(e.target===memoryPopup)memoryPopup.classList.remove('active')});
@@ -499,72 +521,19 @@ const writingGrid=document.getElementById('writing-grid');const writingPopup=doc
 writings.forEach((w,idx)=>{const card=document.createElement('div');card.className='memory-card magnetic writing-card';card.style.animationDelay=`${idx*0.5}s`;card.innerHTML=`<div class="memory-lock"><i class="fas fa-feather-alt"></i></div><div class="memory-date">${w.title}</div><div class="memory-tap">Tap to Read</div>`;card.addEventListener('click',()=>{document.getElementById('w-title').innerText=w.title;document.getElementById('w-author').innerText=`- ${w.author}`;document.getElementById('w-text').innerText=w.text;writingPopup.classList.add('active')});writingGrid.appendChild(card)});
 writingClose.addEventListener('click',()=>writingPopup.classList.remove('active'));writingPopup.addEventListener('click',(e)=>{if(e.target===writingPopup)writingPopup.classList.remove('active')});
 
-// MASSIVE GALLERY IMAGES & CAPTIONS POOL
 const galleryImages=["https://i.ibb.co/zWv8KrKV/Whats-App-Image-2026-07-09-at-01-15-31.jpg","https://i.ibb.co/ymHZpn7x/Whats-App-Image-2026-07-09-at-01-15-29.jpg","https://i.ibb.co/m5sGZPrH/Whats-App-Image-2026-07-09-at-00-42-31.jpg","https://i.ibb.co/zT9Ht6D8/Whats-App-Image-2026-07-09-at-00-41-06.jpg","https://i.ibb.co/20w8qZFT/Whats-App-Image-2026-07-09-at-00-42-31-1.jpg","https://i.ibb.co/sdWY4xSc/Whats-App-Image-2026-07-09-at-00-34-28.jpg","https://i.ibb.co/272rQ7Yt/Whats-App-Image-2026-07-09-at-00-32-32.jpg","https://i.ibb.co/k64CQzd0/Whats-App-Image-2026-07-09-at-00-20-11.jpg","https://i.ibb.co/hRWqSN5Z/Whats-App-Image-2026-07-09-at-00-20-10.jpg","https://i.ibb.co/9RT3LD8/Whats-App-Image-2026-07-09-at-00-20-10-1.jpg","https://i.ibb.co/rKgTK811/Whats-App-Image-2026-07-09-at-00-19-58.jpg","https://i.ibb.co/HTJwMRKt/Whats-App-Image-2026-07-09-at-00-16-22.jpg","https://i.ibb.co/YTXspNkL/Whats-App-Image-2026-07-09-at-00-19-57.jpg","https://i.ibb.co/0VtmwBBF/Whats-App-Image-2026-07-09-at-00-15-51.jpg","https://i.ibb.co/1Y2RrBYd/Whats-App-Image-2026-07-09-at-00-15-50.jpg","https://i.ibb.co/4g4rhrbm/Whats-App-Image-2026-07-09-at-00-15-49.jpg","https://i.ibb.co/4w5R2fQm/Whats-App-Image-2026-07-09-at-00-15-47.jpg","https://i.ibb.co/qYjpJJmP/Whats-App-Image-2026-07-09-at-00-15-46.jpg","https://i.ibb.co/4nwNjL88/Whats-App-Image-2026-07-09-at-00-15-45.jpg","https://i.ibb.co/jP6b7q5H/photo-64-2026-07-19-21-23-59.jpg","https://i.ibb.co/Jj5FQxtC/photo-64-2026-07-19-21-24-44.jpg","https://i.ibb.co/yFGg5f1t/photo-65-2026-07-19-21-22-40.jpg","https://i.ibb.co/5hm9jb9q/photo-65-2026-07-19-21-23-59.jpg","https://i.ibb.co/MDVrjS3w/photo-65-2026-07-19-21-24-44.jpg","https://i.ibb.co/DjvJCFh/photo-66-2026-07-19-21-22-40.jpg","https://i.ibb.co/3yqpNN1h/photo-66-2026-07-19-21-23-59.jpg","https://i.ibb.co/KczG690b/photo-66-2026-07-19-21-24-44.jpg","https://i.ibb.co/d0yF64nx/photo-67-2026-07-19-21-22-40.jpg","https://i.ibb.co/fzzPnx1R/photo-67-2026-07-19-21-23-59.jpg","https://i.ibb.co/vxLqhxCX/photo-67-2026-07-19-21-24-44.jpg","https://i.ibb.co/5x1kLwFf/photo-68-2026-07-19-21-22-40.jpg","https://i.ibb.co/k72vwns/photo-68-2026-07-19-21-23-59.jpg","https://i.ibb.co/nsGdTdzw/photo-68-2026-07-19-21-24-44.jpg","https://i.ibb.co/HpPdcb6L/photo-69-2026-07-19-21-22-40.jpg","https://i.ibb.co/jktHythk/photo-69-2026-07-19-21-23-59.jpg","https://i.ibb.co/JjGx5LCR/photo-69-2026-07-19-21-24-44.jpg","https://i.ibb.co/dwj0wm6k/photo-70-2026-07-19-21-22-40.jpg","https://i.ibb.co/QG0hBWb/photo-70-2026-07-19-21-23-59.jpg","https://i.ibb.co/7d4FG3tm/photo-70-2026-07-19-21-24-44.jpg","https://i.ibb.co/prhd6DNQ/photo-71-2026-07-19-21-22-40.jpg","https://i.ibb.co/cSkQmcyj/photo-71-2026-07-19-21-23-59.jpg","https://i.ibb.co/W4pqz2Q3/photo-71-2026-07-19-21-24-44.jpg","https://i.ibb.co/d4CKrHhD/photo-72-2026-07-19-21-22-40.jpg","https://i.ibb.co/hJpN9H6S/photo-72-2026-07-19-21-23-59.jpg","https://i.ibb.co/8gVW4gDH/photo-72-2026-07-19-21-24-44.jpg","https://i.ibb.co/XrwWFmVH/photo-73-2026-07-19-21-22-40.jpg","https://i.ibb.co/LzBTPTd8/photo-73-2026-07-19-21-23-59.jpg","https://i.ibb.co/d0CW7R8h/photo-73-2026-07-19-21-24-44.jpg","https://i.ibb.co/fYYNDvDX/photo-74-2026-07-19-21-22-40.jpg","https://i.ibb.co/yBXTpQf4/photo-74-2026-07-19-21-23-59.jpg","https://i.ibb.co/N6R8VDjs/photo-74-2026-07-19-21-24-44.jpg","https://i.ibb.co/bRQTFWyB/photo-75-2026-07-19-21-22-40.jpg","https://i.ibb.co/0jz8Wf3F/photo-75-2026-07-19-21-23-59.jpg","https://i.ibb.co/kV0WKqwd/photo-75-2026-07-19-21-24-44.jpg","https://i.ibb.co/WNN6L0yj/photo-76-2026-07-19-21-22-40.jpg","https://i.ibb.co/213v9sVn/photo-76-2026-07-19-21-23-59.jpg","https://i.ibb.co/CKsByjTR/photo-76-2026-07-19-21-24-44.jpg","https://i.ibb.co/rGjs5xGc/photo-77-2026-07-19-21-22-40.jpg","https://i.ibb.co/d09H015q/photo-77-2026-07-19-21-23-59.jpg","https://i.ibb.co/SD5SnRbX/photo-77-2026-07-19-21-24-44.jpg","https://i.ibb.co/S4F28y9S/photo-78-2026-07-19-21-22-40.jpg","https://i.ibb.co/6JqQmrKN/photo-78-2026-07-19-21-23-59.jpg","https://i.ibb.co/20FS8Cj6/photo-78-2026-07-19-21-24-44.jpg","https://i.ibb.co/Q3nttY41/photo-79-2026-07-19-21-22-40.jpg","https://i.ibb.co/DHPtVzGM/photo-79-2026-07-19-21-23-59.jpg","https://i.ibb.co/2Y602Y4Y/photo-79-2026-07-19-21-24-44.jpg","https://i.ibb.co/JF02RGQ9/photo-80-2026-07-19-21-22-40.jpg","https://i.ibb.co/9QyYBdt/photo-80-2026-07-19-21-23-59.jpg","https://i.ibb.co/Vcz3yQ3X/photo-80-2026-07-19-21-24-44.jpg","https://i.ibb.co/1YntTbr9/photo-81-2026-07-19-21-22-40.jpg","https://i.ibb.co/chddVNd6/photo-81-2026-07-19-21-23-59.jpg","https://i.ibb.co/JW3sJy6W/photo-81-2026-07-19-21-24-45.jpg","https://i.ibb.co/LXjk6xzG/photo-82-2026-07-19-21-22-40.jpg","https://i.ibb.co/fzN4vP7X/photo-82-2026-07-19-21-23-59.jpg","https://i.ibb.co/hJ93zVLb/photo-82-2026-07-19-21-24-45.jpg","https://i.ibb.co/zTwpMxVD/photo-83-2026-07-19-21-22-40.jpg","https://i.ibb.co/Y7nXYDQR/photo-83-2026-07-19-21-23-59.jpg","https://i.ibb.co/DPLvjkmK/photo-83-2026-07-19-21-24-45.jpg","https://i.ibb.co/r2YJNnvZ/photo-84-2026-07-19-21-22-40.jpg","https://i.ibb.co/rKmYVFbf/photo-84-2026-07-19-21-23-59.jpg","https://i.ibb.co/XfhCfv7N/photo-84-2026-07-19-21-24-45.jpg","https://i.ibb.co/213StbMR/photo-85-2026-07-19-21-22-40.jpg","https://i.ibb.co/Hf87k0By/photo-85-2026-07-19-21-23-59.jpg","https://i.ibb.co/VW1vFP7X/photo-85-2026-07-19-21-24-45.jpg","https://i.ibb.co/QvqmQNx5/photo-86-2026-07-19-21-22-40.jpg","https://i.ibb.co/5hCFRDBQ/photo-86-2026-07-19-21-23-59.jpg","https://i.ibb.co/PZfWqp9g/photo-86-2026-07-19-21-24-45.jpg","https://i.ibb.co/WvtSW7py/photo-87-2026-07-19-21-22-40.jpg","https://i.ibb.co/7M7xKd8/photo-87-2026-07-19-21-23-59.jpg","https://i.ibb.co/HLNhF2Pt/photo-87-2026-07-19-21-24-45.jpg","https://i.ibb.co/pBCr2gBc/photo-88-2026-07-19-21-22-40.jpg","https://i.ibb.co/FLVP02Vt/photo-88-2026-07-19-21-23-59.jpg","https://i.ibb.co/hJyb7LGz/photo-88-2026-07-19-21-24-45.jpg","https://i.ibb.co/FkxWRPfc/photo-89-2026-07-19-21-22-40.jpg","https://i.ibb.co/HTwKRYz8/photo-89-2026-07-19-21-23-59.jpg","https://i.ibb.co/4rWwHZv/photo-89-2026-07-19-21-24-45.jpg","https://i.ibb.co/1GPSBRPK/photo-90-2026-07-19-21-22-40.jpg","https://i.ibb.co/B2YWY0dV/photo-90-2026-07-19-21-23-59.jpg","https://i.ibb.co/R4V89t60/photo-90-2026-07-19-21-24-45.jpg","https://i.ibb.co/DgsyRVyK/photo-91-2026-07-19-21-22-40.jpg","https://i.ibb.co/MyPq6wv9/photo-91-2026-07-19-21-23-59.jpg","https://i.ibb.co/Z1mKq07f/photo-91-2026-07-19-21-24-45.jpg","https://i.ibb.co/MkPZdzqd/photo-92-2026-07-19-21-22-40.jpg","https://i.ibb.co/ks3qqHCS/photo-92-2026-07-19-21-23-59.jpg","https://i.ibb.co/6c06ww0w/photo-92-2026-07-19-21-24-45.jpg","https://i.ibb.co/8DwSRLPw/photo-93-2026-07-19-21-23-59.jpg","https://i.ibb.co/C39nCxJp/photo-93-2026-07-19-21-24-45.jpg","https://i.ibb.co/DP69jT7D/photo-94-2026-07-19-21-23-59.jpg","https://i.ibb.co/0RRjwXVC/photo-94-2026-07-19-21-24-45.jpg","https://i.ibb.co/kVL7t5LP/photo-95-2026-07-19-21-23-59.jpg","https://i.ibb.co/jvjms6Zb/photo-95-2026-07-19-21-24-45.jpg","https://i.ibb.co/XkKjSXsM/photo-96-2026-07-19-21-23-59.jpg","https://i.ibb.co/DftGZFZQ/photo-96-2026-07-19-21-24-45.jpg","https://i.ibb.co/VcQ6D9Zj/photo-97-2026-07-19-21-23-59.jpg","https://i.ibb.co/7NJGwVBd/photo-97-2026-07-19-21-24-45.jpg","https://i.ibb.co/k2VvYw3f/photo-98-2026-07-19-21-23-59.jpg","https://i.ibb.co/5W7DwpBR/photo-98-2026-07-19-21-24-45.jpg","https://i.ibb.co/m7m4R99/photo-99-2026-07-19-21-23-59.jpg","https://i.ibb.co/sdDmQ74b/photo-99-2026-07-19-21-24-45.jpg","https://i.ibb.co/nx3y1jp/photo-1-2026-07-19-21-22-39.jpg","https://i.ibb.co/ZprS8gz7/photo-1-2026-07-19-21-23-59.jpg","https://i.ibb.co/LdkP2F4R/photo-1-2026-07-19-21-24-44.jpg","https://i.ibb.co/kgMS6L6T/photo-1-2026-07-19-21-24-55.jpg","https://i.ibb.co/WWbYNj9Y/photo-2-2026-07-19-21-22-39.jpg","https://i.ibb.co/M5y2m0bL/photo-2-2026-07-19-21-23-59.jpg","https://i.ibb.co/yzLjFxh/photo-2-2026-07-19-21-24-44.jpg","https://i.ibb.co/ns6dwWKW/photo-2-2026-07-19-21-24-55.jpg","https://i.ibb.co/LDrGJrvb/photo-3-2026-07-19-21-22-39.jpg","https://i.ibb.co/3YkxvjDN/photo-3-2026-07-19-21-23-59.jpg","https://i.ibb.co/xqKYp21Z/photo-3-2026-07-19-21-24-44.jpg","https://i.ibb.co/gFJ2tXLy/photo-3-2026-07-19-21-24-55.jpg","https://i.ibb.co/Q7QJfmrt/photo-4-2026-07-19-21-22-39.jpg","https://i.ibb.co/mr29Scz4/photo-4-2026-07-19-21-23-59.jpg","https://i.ibb.co/ycXYb2KY/photo-4-2026-07-19-21-24-44.jpg","https://i.ibb.co/v5khbxs/photo-4-2026-07-19-21-24-55.jpg","https://i.ibb.co/M53VksCj/photo-5-2026-07-19-21-22-39.jpg","https://i.ibb.co/G43tGXzX/photo-5-2026-07-19-21-23-59.jpg","https://i.ibb.co/G4FDvvgP/photo-5-2026-07-19-21-24-44.jpg","https://i.ibb.co/KzwbKVbT/photo-5-2026-07-19-21-24-55.jpg","https://i.ibb.co/xtZyYtyy/photo-6-2026-07-19-21-22-39.jpg","https://i.ibb.co/PG1rxN6S/photo-6-2026-07-19-21-23-59.jpg","https://i.ibb.co/B2rW2mjD/photo-6-2026-07-19-21-24-44.jpg","https://i.ibb.co/Y4ZjhWW3/photo-7-2026-07-19-21-22-39.jpg","https://i.ibb.co/G3GKhMb5/photo-7-2026-07-19-21-23-59.jpg","https://i.ibb.co/6cm51XWZ/photo-7-2026-07-19-21-24-44.jpg","https://i.ibb.co/bMcF2R0j/photo-8-2026-07-19-21-22-39.jpg","https://i.ibb.co/DfNdqrTG/photo-8-2026-07-19-21-23-59.jpg","https://i.ibb.co/VpLT1x17/photo-8-2026-07-19-21-24-44.jpg","https://i.ibb.co/0pQ0yt3B/photo-9-2026-07-19-21-22-39.jpg","https://i.ibb.co/zhj0hZqh/photo-9-2026-07-19-21-23-59.jpg","https://i.ibb.co/vCcjVjV4/photo-9-2026-07-19-21-24-44.jpg","https://i.ibb.co/RGvBCxWX/photo-10-2026-07-19-21-22-39.jpg","https://i.ibb.co/gZfw9gT9/photo-10-2026-07-19-21-23-59.jpg","https://i.ibb.co/W4Fhcqzd/photo-10-2026-07-19-21-24-44.jpg","https://i.ibb.co/Cp9fNXmx/photo-11-2026-07-19-21-22-39.jpg","https://i.ibb.co/zTBnVpcb/photo-11-2026-07-19-21-23-59.jpg","https://i.ibb.co/DfsHP6Ks/photo-11-2026-07-19-21-24-44.jpg","https://i.ibb.co/Csbmd6MQ/photo-12-2026-07-19-21-22-39.jpg","https://i.ibb.co/PZ0mg14W/photo-12-2026-07-19-21-23-59.jpg","https://i.ibb.co/KjnycyFr/photo-12-2026-07-19-21-24-44.jpg","https://i.ibb.co/4gJCbN9t/photo-13-2026-07-19-21-22-39.jpg","https://i.ibb.co/RTS4HyQV/photo-13-2026-07-19-21-23-59.jpg","https://i.ibb.co/sdM9M91G/photo-13-2026-07-19-21-24-44.jpg","https://i.ibb.co/KzNfKJxD/photo-14-2026-07-19-21-22-39.jpg","https://i.ibb.co/jvs75scW/photo-14-2026-07-19-21-23-59.jpg","https://i.ibb.co/FkqKs7wG/photo-14-2026-07-19-21-24-44.jpg","https://i.ibb.co/WWz0n07w/photo-15-2026-07-19-21-22-39.jpg","https://i.ibb.co/wF5BmRxp/photo-15-2026-07-19-21-23-59.jpg","https://i.ibb.co/W499fxnJ/photo-15-2026-07-19-21-24-44.jpg","https://i.ibb.co/gFM3Wtnr/photo-16-2026-07-19-21-22-39.jpg","https://i.ibb.co/G4cqStHc/photo-16-2026-07-19-21-23-59.jpg","https://i.ibb.co/wNQ58HJR/photo-16-2026-07-19-21-24-44.jpg","https://i.ibb.co/pj6T0Sj3/photo-17-2026-07-19-21-22-39.jpg","https://i.ibb.co/bjvWDQrq/photo-17-2026-07-19-21-23-59.jpg","https://i.ibb.co/G4nsQnKf/photo-17-2026-07-19-21-24-44.jpg","https://i.ibb.co/gMVBsy0h/photo-18-2026-07-19-21-22-39.jpg","https://i.ibb.co/ytgtkqT/photo-18-2026-07-19-21-23-59.jpg","https://i.ibb.co/LdSBtF4p/photo-18-2026-07-19-21-24-44.jpg","https://i.ibb.co/gbtXGz1w/photo-19-2026-07-19-21-22-39.jpg","https://i.ibb.co/gL9J8RmS/photo-19-2026-07-19-21-23-59.jpg","https://i.ibb.co/TDZqzDRv/photo-19-2026-07-19-21-24-44.jpg","https://i.ibb.co/TBD3jsSv/photo-20-2026-07-19-21-22-39.jpg","https://i.ibb.co/Mk2LXzJn/photo-20-2026-07-19-21-23-59.jpg","https://i.ibb.co/nFgvmrs/photo-20-2026-07-19-21-24-44.jpg","https://i.ibb.co/Mx26VMc9/photo-21-2026-07-19-21-22-39.jpg","https://i.ibb.co/tMQS7RnP/photo-21-2026-07-19-21-23-59.jpg","https://i.ibb.co/yFFx99bq/photo-21-2026-07-19-21-24-44.jpg","https://i.ibb.co/Myyg35MV/photo-22-2026-07-19-21-22-39.jpg","https://i.ibb.co/gLgSjKg6/photo-22-2026-07-19-21-23-59.jpg","https://i.ibb.co/SXQ9RgLC/photo-22-2026-07-19-21-24-44.jpg","https://i.ibb.co/xS4zhXMj/photo-23-2026-07-19-21-22-39.jpg","https://i.ibb.co/FL7Rmv25/photo-23-2026-07-19-21-23-59.jpg","https://i.ibb.co/qFc2376P/photo-23-2026-07-19-21-24-44.jpg","https://i.ibb.co/0j89DKFW/photo-24-2026-07-19-21-22-39.jpg","https://i.ibb.co/bM9PtKdv/photo-24-2026-07-19-21-23-59.jpg","https://i.ibb.co/Ng1Jg9ng/photo-24-2026-07-19-21-24-44.jpg","https://i.ibb.co/8gfLwSKV/photo-25-2026-07-19-21-22-39.jpg","https://i.ibb.co/gZs9zd2n/photo-25-2026-07-19-21-23-59.jpg","https://i.ibb.co/Xf04Vjzv/photo-25-2026-07-19-21-24-44.jpg","https://i.ibb.co/cK2cR4x8/photo-26-2026-07-19-21-22-39.jpg","https://i.ibb.co/F4wfwKjL/photo-26-2026-07-19-21-23-59.jpg","https://i.ibb.co/d0sD3kss/photo-26-2026-07-19-21-24-44.jpg","https://i.ibb.co/JRq149jM/photo-27-2026-07-19-21-22-39.jpg","https://i.ibb.co/gH86LdB/photo-27-2026-07-19-21-23-59.jpg","https://i.ibb.co/5WqK7nZG/photo-27-2026-07-19-21-24-44.jpg","https://i.ibb.co/d444nzSG/photo-28-2026-07-19-21-22-39.jpg","https://i.ibb.co/QFh5rn88/photo-28-2026-07-19-21-23-59.jpg","https://i.ibb.co/Mk14r1kM/photo-28-2026-07-19-21-24-44.jpg","https://i.ibb.co/fVxj4SSF/photo-29-2026-07-19-21-22-39.jpg","https://i.ibb.co/wZCwWGsN/photo-29-2026-07-19-21-23-59.jpg","https://i.ibb.co/RGRKQdnW/photo-29-2026-07-19-21-24-44.jpg","https://i.ibb.co/q3q6vSQ7/photo-30-2026-07-19-21-22-39.jpg","https://i.ibb.co/d44FsWLs/photo-30-2026-07-19-21-23-59.jpg","https://i.ibb.co/3Yjmm78r/photo-30-2026-07-19-21-24-44.jpg","https://i.ibb.co/qY4YxDzP/photo-31-2026-07-19-21-22-39.jpg","https://i.ibb.co/3yM7gjw9/photo-31-2026-07-19-21-23-59.jpg","https://i.ibb.co/VWKbh9rx/photo-31-2026-07-19-21-24-44.jpg","https://i.ibb.co/dwknbRHH/photo-32-2026-07-19-21-22-39.jpg","https://i.ibb.co/qMY7vbtv/photo-32-2026-07-19-21-23-59.jpg","https://i.ibb.co/rfckxNJc/photo-32-2026-07-19-21-24-44.jpg","https://i.ibb.co/ycDCHyvz/photo-33-2026-07-19-21-22-39.jpg","https://i.ibb.co/NPYMZsz/photo-33-2026-07-19-21-23-59.jpg","https://i.ibb.co/qYBL3GRQ/photo-33-2026-07-19-21-24-44.jpg","https://i.ibb.co/cmBdCGB/photo-34-2026-07-19-21-22-39.jpg","https://i.ibb.co/fYwvbZnH/photo-34-2026-07-19-21-23-59.jpg","https://i.ibb.co/spBPbcc0/photo-34-2026-07-19-21-24-44.jpg","https://i.ibb.co/zWPQ8h2X/photo-35-2026-07-19-21-22-39.jpg","https://i.ibb.co/Z1JzC7VB/photo-35-2026-07-19-21-23-59.jpg","https://i.ibb.co/XxyL3jFN/photo-35-2026-07-19-21-24-44.jpg","https://i.ibb.co/Jjh7d0nC/photo-36-2026-07-19-21-22-39.jpg","https://i.ibb.co/bRqZyKfs/photo-36-2026-07-19-21-23-59.jpg","https://i.ibb.co/fzYGLCXG/photo-36-2026-07-19-21-24-44.jpg","https://i.ibb.co/MyPqYbqq/photo-37-2026-07-19-21-22-39.jpg","https://i.ibb.co/j94FGwwK/photo-37-2026-07-19-21-23-59.jpg","https://i.ibb.co/XfY5NRWV/photo-37-2026-07-19-21-24-44.jpg","https://i.ibb.co/KzmsTT4Q/photo-38-2026-07-19-21-22-39.jpg","https://i.ibb.co/qLYbZP3J/photo-38-2026-07-19-21-23-59.jpg","https://i.ibb.co/ynLtFPC8/photo-38-2026-07-19-21-24-44.jpg","https://i.ibb.co/R4YCvLQj/photo-39-2026-07-19-21-22-39.jpg","https://i.ibb.co/93T851Ny/photo-39-2026-07-19-21-23-59.jpg","https://i.ibb.co/Jwn4fbRx/photo-39-2026-07-19-21-24-44.jpg","https://i.ibb.co/gh4sMWw/photo-40-2026-07-19-21-22-39.jpg","https://i.ibb.co/90CFYtv/photo-40-2026-07-19-21-23-59.jpg","https://i.ibb.co/qMgNvWm7/photo-40-2026-07-19-21-24-44.jpg","https://i.ibb.co/HpKDBc1C/photo-41-2026-07-19-21-22-39.jpg","https://i.ibb.co/1tnGYt7k/photo-41-2026-07-19-21-23-59.jpg","https://i.ibb.co/xSJ1q4kg/photo-41-2026-07-19-21-24-44.jpg","https://i.ibb.co/4qsFmbX/photo-42-2026-07-19-21-22-39.jpg","https://i.ibb.co/R4gJLtzw/photo-42-2026-07-19-21-23-59.jpg","https://i.ibb.co/ZpmKYMfK/photo-42-2026-07-19-21-24-44.jpg","https://i.ibb.co/pv9DWnXj/photo-43-2026-07-19-21-22-39.jpg","https://i.ibb.co/HL4ywXjG/photo-43-2026-07-19-21-23-59.jpg","https://i.ibb.co/cSRLN1XC/photo-43-2026-07-19-21-24-44.jpg","https://i.ibb.co/4R3NQBy6/photo-44-2026-07-19-21-22-39.jpg","https://i.ibb.co/k2dQ23V5/photo-44-2026-07-19-21-23-59.jpg","https://i.ibb.co/rK8rhg2d/photo-44-2026-07-19-21-24-44.jpg","https://i.ibb.co/fV1fpMRG/photo-45-2026-07-19-21-22-39.jpg","https://i.ibb.co/6cDfBy2Q/photo-45-2026-07-19-21-23-59.jpg","https://i.ibb.co/rKTFrKwt/photo-45-2026-07-19-21-24-44.jpg","https://i.ibb.co/WNP9yY4g/photo-46-2026-07-19-21-22-39.jpg","https://i.ibb.co/wZpmSY6B/photo-46-2026-07-19-21-23-59.jpg","https://i.ibb.co/3ypWJ6Ry/photo-46-2026-07-19-21-24-44.jpg","https://i.ibb.co/fYJ1nDmm/photo-47-2026-07-19-21-22-40.jpg","https://i.ibb.co/zVGXtkGD/photo-47-2026-07-19-21-23-59.jpg","https://i.ibb.co/N2TxL3Q5/photo-47-2026-07-19-21-24-44.jpg","https://i.ibb.co/JwP9xpdn/photo-48-2026-07-19-21-22-40.jpg","https://i.ibb.co/N2ZCmQBB/photo-48-2026-07-19-21-23-59.jpg","https://i.ibb.co/zT9v21Kc/photo-48-2026-07-19-21-24-44.jpg","https://i.ibb.co/gbVKSg09/photo-49-2026-07-19-21-22-40.jpg","https://i.ibb.co/1YpjB7Rg/photo-49-2026-07-19-21-23-59.jpg","https://i.ibb.co/Kz8NktRK/photo-49-2026-07-19-21-24-44.jpg","https://i.ibb.co/XrY3Z63w/photo-50-2026-07-19-21-22-40.jpg","https://i.ibb.co/Hyyv0s7/photo-50-2026-07-19-21-23-59.jpg","https://i.ibb.co/wrNRgFBM/photo-50-2026-07-19-21-24-44.jpg","https://i.ibb.co/4n9rfJK8/photo-51-2026-07-19-21-22-40.jpg","https://i.ibb.co/fc6gHHr/photo-51-2026-07-19-21-23-59.jpg","https://i.ibb.co/4R0sVkYy/photo-51-2026-07-19-21-24-44.jpg","https://i.ibb.co/pBCnPsLQ/photo-52-2026-07-19-21-22-40.jpg","https://i.ibb.co/RpDbdZJR/photo-52-2026-07-19-21-23-59.jpg","https://i.ibb.co/C34ncZqx/photo-52-2026-07-19-21-24-44.jpg","https://i.ibb.co/Q7b2RQzm/photo-53-2026-07-19-21-22-40.jpg","https://i.ibb.co/KzFC2vyC/photo-53-2026-07-19-21-23-59.jpg","https://i.ibb.co/Kjgx5mDT/photo-53-2026-07-19-21-24-44.jpg","https://i.ibb.co/0y25K2Lr/photo-54-2026-07-19-21-22-40.jpg","https://i.ibb.co/7NT1yzWQ/photo-54-2026-07-19-21-23-59.jpg","https://i.ibb.co/pvzbtmzT/photo-54-2026-07-19-21-24-44.jpg","https://i.ibb.co/TDZjRw26/photo-55-2026-07-19-21-22-40.jpg","https://i.ibb.co/d4KK8W2Z/photo-55-2026-07-19-21-23-59.jpg","https://i.ibb.co/W48XSsKP/photo-55-2026-07-19-21-24-44.jpg","https://i.ibb.co/j9Dhvd1q/photo-56-2026-07-19-21-22-40.jpg","https://i.ibb.co/vCkP2Mk5/photo-56-2026-07-19-21-23-59.jpg","https://i.ibb.co/9mS13xTY/photo-56-2026-07-19-21-24-44.jpg","https://i.ibb.co/S7dfWh2b/photo-57-2026-07-19-21-22-40.jpg","https://i.ibb.co/y9fpcd1/photo-57-2026-07-19-21-23-59.jpg","https://i.ibb.co/M5PVf8y9/photo-57-2026-07-19-21-24-44.jpg","https://i.ibb.co/kszmP8bZ/photo-58-2026-07-19-21-22-40.jpg","https://i.ibb.co/vCRGJqgL/photo-58-2026-07-19-21-23-59.jpg","https://i.ibb.co/SXcWsKLN/photo-58-2026-07-19-21-24-44.jpg","https://i.ibb.co/5gPyzTDY/photo-59-2026-07-19-21-22-40.jpg","https://i.ibb.co/pBdVjxFj/photo-59-2026-07-19-21-23-59.jpg","https://i.ibb.co/tMqNSbCG/photo-59-2026-07-19-21-24-44.jpg","https://i.ibb.co/gMTRS4ZJ/photo-60-2026-07-19-21-22-40.jpg","https://i.ibb.co/4Zk5Phkn/photo-60-2026-07-19-21-23-59.jpg","https://i.ibb.co/4nSMdRPn/photo-60-2026-07-19-21-24-44.jpg","https://i.ibb.co/r2tvWKdj/photo-61-2026-07-19-21-22-40.jpg","https://i.ibb.co/wZDcjBy6/photo-61-2026-07-19-21-23-59.jpg","https://i.ibb.co/Z1bBXbLS/photo-61-2026-07-19-21-24-44.jpg","https://i.ibb.co/q3HBDfhX/photo-62-2026-07-19-21-22-40.jpg","https://i.ibb.co/rR4DqX3K/photo-62-2026-07-19-21-23-59.jpg","https://i.ibb.co/cXyCbHRc/photo-62-2026-07-19-21-24-44.jpg","https://i.ibb.co/gbxKRPyL/photo-63-2026-07-19-21-22-40.jpg","https://i.ibb.co/QSggsVk/photo-63-2026-07-19-21-23-59.jpg","https://i.ibb.co/7xgSvDns/photo-63-2026-07-19-21-24-44.jpg","https://i.ibb.co/h1DggpTL/photo-64-2026-07-19-21-22-40.jpg","https://i.ibb.co/8nYyKxKt/IMG20260608110935.jpg","https://i.ibb.co/4n5Z2yDZ/IMG20260608111211.jpg","https://i.ibb.co/xqwm66M5/IMG20260608165950.jpg"];
 
 const captions=["✨ Catching The Golden Hour Light 🌅","🥰 মিষ্টি হাসিতে মন জুড়িয়ে যায় 💞","🔮 Pure Soul Full Of Magic ✨","👀 মায়াবী চোখের মিষ্টি কিছু ভাষা 💖","💖 A Little Sparkle Every Day ✨","💡 একটুকরো আলো মনের গহীন কোণে 🧠","😊 Keep Smiling No Matter What 💫","💓 হৃদয়ের স্পন্দন তুমি শুধু আমার 🔐","🌙 Chasing Dreams Into The Night 🚀","🌈 রঙিন স্বপ্নের দেশে হারিয়ে যাওয়া ☁️","🌟 Glow From Within Always Shines ✨","☀️ স্নিগ্ধ সকালের এক চিলতে রোদ 🌸","🎵 Melody Of A Beautiful Heart ❤️","📖 ভালোবাসার গল্পটা আমাদের খুব চেনা 💑","⭐ Shining Bright Like A Star ✨","🕊️ নীল আকাশের বুকে মুক্ত বিহঙ্গ 🌤️","💃 Grace In Every Single Step ✨","🙈 মিষ্টি মেয়ের মিষ্টি কিছু অভিমান 🥺","👑 Ruling Hearts Like A Queen 💖","👸 রূপের রানি তুমি মনের আঙিনায় 💞","🍃 Pure Bliss In Little Things 🌼","🔍 এক চিলতে সুখের খোঁজে মন 🕊️","✨ Charming Vibe Around You Always 🌸","📝 খামখেয়ালী মনের মিষ্টি কিছু গল্প 💭","🕯️ Bringing Light To The Dark 🖤","🌙 জোছনা রাতের মায়াবী এক আলো ✨","🦅 Wild Spirit And Free Heart ❤️","💞 চিরন্তন প্রেমের এক অদ্ভুত অনুভূতি 💖","⏳ Forever Is A Long Time ♾️","🤝 সবসময় পাশে থাকার মিষ্টি প্রতিশ্রুতি 💍","❤️ Love Without Any Hidden Limits ♾️","💖 প্রিয়তমা আমার হৃদয়ের খুব কাছে 💘","🧸 Cutest Smile In The Room 😊","🤪 পাগলী মেয়েটার মিষ্টি কিছু বায়না 🎀","📸 Precious Moments Built To Last ⏳","💎 মূল্যবান স্মৃতির পাতায় তুমি অনন্য ✨","🌸 Beautiful Inside And Out Always ✨","🌿 অপরূপা তুমি প্রকৃতির স্নিগ্ধ সৃষ্টি 🌼","🙏 Stay Blessed Wherever You Go ✨","💖 শুভকামনা রইল তোমার পথচলায় মন থেকে 🌸","👼 Angel Eyes Watching Over You 👀","🦌 হরিণ চোখের সেই মায়াবী চাউনি ✨","🌅 Golden Hour Aesthetics On Point 🌾","☀️ সোনার রোদে ভেজা অলস দুপুর 🍃","💝 Sweet Heart Full Of Love 💕","🦜 পরাণ পাখি আমার মনের খাঁচায় 💖","🌱 Wild Flower Growing So Free 🌼","🌸 বুনো ফুলের মতো মুক্ত স্বভাব 🍃","🌊 Deep Vibes Only For You 💓","🤫 গভীর অনুভূতির কিছু না বলা কথা 💭","👗 Classic Look Never Goes Out ✨","👑 চিরায়ত রূপের মাঝে আধুনিকতার ছোঁয়া 💖","🌧️ Keep Smiling Through The Rain 🌦️","😊 হাসতে থাকো চিরদিন এইভাবেই তুমি 💞","🚀 Dream Big And Fly High 🦅","☁️ আকাশ ছোঁয়ার স্বপ্ন বুকে নিয়ে পথচলা 🏔️","✨ Simply Elegant In Every Way 🌹","🔮 সাদামাটা সৌন্দর্যের মাঝে লুকিয়ে থাকা জাদু ✨","💖 True Beauty Lies Within Soul ✨","🌸 প্রকৃতির রূপের চেয়েও সুন্দর মন 💞","💯 Stay Real In Fake World 🌍","🌱 নিজের মতো করে বাঁচতে শেখা প্রতিদিন ☀️","😊 Cute Smile Wins Every Heart ❤️","💋 মিষ্টি ঠোঁটের হাসিতে মন ভোলে 🥰","🎈 Forever Young At Heart Always 💃","🎶 চিরসবুজ মনের মাঝে আনন্দের গান 🎤","🌙 Moon Child Born To Shine ✨","🌙 চাঁদের কণার মতো উজ্জ্বল তুমি 🌟","🤝 Soulmate Found In You Friend 🫂","⏳ প্রাণের মানুষের খোঁজে কেটে গেল বেলা 🌅","🎉 Happy Vibes Only Around Here ✨","🌊 আনন্দের জোয়ারে ভেসে যাক সব দুঃখ 🌈","😇 Pretty Face With Kind Heart ❤️","💖 মনোহরণ রূপের আড়ালে মায়াবী মন 👀","💎 Shine Bright Like A Diamond ✨","💡 আলোর দিশারী হয়ে পথ দেখাও তুমি 🌟","🧘 Peaceful Mind Peaceful Life Always 🍃","🏡 শান্ত মনের মাঝে সুখের বসবাস চিরকাল ✨","☀️ Lovely Day Spent With You 👩‍❤️‍👨","📸 সুন্দর দিনের সুন্দর কিছু মুহূর্ত আমাদের 💞","🌍 My World Revolves Around You 🔄","💖 আমার পৃথিবী জুড়ে শুধু তোমার নাম ✍️","🧸 Cute Pie With Big Dreams 🚀","👶 মিষ্টি পুতুলের মতো নিষ্পাপ চাহনি 👀","🦁 Brave Heart Fears Absolutely Nothing 💪","🌍 সাহসী মনের জোরে জয় করা পৃথিবী ⚔️","🌼 Little Things Bring Most Joy 🌱","🎈 ছোট ছোট সুখের মাঝে জীবন খোঁজা 🌾","❤️ Pure Love Lasts A Lifetime ⏳","💎 খাঁটি ভালোবাসার কোনো বিকল্প হয় না 💯","⛈️ Stay Strong Through The Storm 🌈","🌤️ ধৈর্য ধরো মেঘ কেটে আলো আসবেই ☀️","🌍 Kind Soul Wandering The Earth 👣","❤️ দয়ালু হৃদয়ের মানুষ খুব কম হয় ✨","🔥 Warm Hugs On Cold Days 🫂","🫂 উষ্ণ আলিঙ্গনে ভুলে যাই সব কষ্ট 💓","💔 Soft Heart In Cruel World 🌍","🥺 নরম মনের মানুষরাই বেশি কষ্ট পায় 😢","☀️ Bright Side Of Every Situation 🔍","💡 আশার আলো জ্বেলে এগিয়ে চলা সামনে 🚀","🏝️ Sweet Escape From The Reality 🌌","🏡 একটু আড়ালে নিজের মতো করে থাকা 🧘","🦅 Free Spirit Can Never Tamed ⛓️","🕊️ মুক্ত বিহঙ্গের মতো ডানা মেলে ওড়া ☁️","🎉 Live Life To The Fullest 💯","💖 জীবন উপভোগ করো প্রতিটি মুহূর্তে মন থেকে ✨","💯 Be Yourself No Matter What 👑","✨ তুমি অনন্য তোমার কোনো বিকল্প নেই 💎","📚 Make History With Your Life 🏆","💪 গল্প তৈরি করো নিজের যোগ্যতার জোরে 🌟","🌅 Golden Days Never Fade Away ⏳","🖼️ সোনালী দিনগুলির স্মৃতি মনের মণিকোঠায় 💖","🧘 Inner Peace Is Ultimate Goal 🕊️","🧠 মনের শান্তির চেয়ে বড় কিছু নেই 💯","🧘 Stay Calm And Be Patient ⏳","🎯 ধীর স্থির মনের মানুষ সবসময় সফল 🏆","💑 Life Is Good With You 💞","🌹 জীবন সুন্দর যখন তুমি পাশে থাকো ❤️","🌟 Keep Shining Bright Every Day ✨","💡 ঝলমল করো নিজের প্রতিভার আলোয় 🎭","⏰ Good Times Are Comin Soon 🌅","⏳ ভালো সময় আসবেই একটু অপেক্ষা করো 🌤️","❤️ True Love Is Very Rare 💎","🔄 অকৃত্রিম ভালোবাসার টানে ফিরে আসা বারবার 💖","🌙 Sweet Dreams Beautiful Tomorrow Ahead 🌌","👸 মিষ্টি স্বপ্নের দেশে রাজকন্যা তুমি একা 👑","😊 Cute Smile Flawless Beauty Always ✨","💭 চপল হাসির আড়ালে লুকিয়ে থাকা গল্প 📖","😊 Stay Happy Live Your Life 🌈","🔐 সুখী থেকো নিজের শর্তে বাঁচো চিরদিন 💯","👼 My Angel From The Heaven 🌌","🧚 আমার পরী তুমি স্বর্গের আলো নিয়ে ✨","🤝 True Friend For The Lifetime ♾️","🤝 আসল বন্ধু চেনা যায় বিপদের দিনে ⛈️","🥰 Feel Good About Yourself Always ✨","📸 ভালো লাগার মুহূর্তগুলো ফ্রেমবন্দি করে রাখা 🖼️","🌱 Fresh Start With New Hope 🌅","🔮 নতুন শুরুতে থাকুক নতুন সব স্বপ্ন 🌈","🚀 Keep Going Never Look Back 🛣️","🏃 এগিয়ে চলো কোনো বাধার মুখে না থমে 🏆","🤝 Be Kind To Everyone Always ❤️","🤲 দয়ালু হও মানুষের পাশে দাঁড়াও নিঃস্বার্থভাবে 💞","😲 Just Wow Nothing To Say 💖","💃 অসাধারণ দেখতে তোমাকে এই নতুন সাজে ✨","📈 Stay Positive In Every Step 🚶","🧠 আশাবাদী মন কখনো হেরে যেতে পারে না 🏆","🕸️ Dream Catcher In The Night 🌌","👁️ স্বপ্ন বুনন করে চলা ক্লান্তহীন চোখে ⏳","❤️ Love Yourself First Before Anyone 👑","🥰 নিজেকে ভালোবাসো তবেই অন্যকে ভালোবাসতে পারবে 💞","📖 Sweet Memory Stays For Forever ⏳","🎞️ মধুর স্মৃতিগুলো কখনো পুরনো হতে চায় না 🥀","💓 So Special To My Heart 🔒","💞 খুব বিশেষ একজন আমার এই জীবনে তুমি 💑","💡 Bright Smile Lightens Up Room 🏢","🌟 উজ্জ্বল হাসির ছটায় দূর হোক অন্ধকার 🖤","🕊️ Be Free From All Worries 🍃","🦅 স্বাধীন মনের পাখিরা কখনো খাঁচায় থাকে না ⛓️","😊 Happy Soul Beautiful Life Inside 💞","🥰 খুশি মনের মানুষরাই সবচেয়ে বেশি সুখী 🌈","✨ Charming Girl Capturing Every Eye 👀","🌌 আকর্ষণীয় রূপের জাদু ছড়িয়ে পড়ুক চারদিকে 🌟","🌸 Stay Soft But Be Strong 💪","🛡️ কোমল হৃদয়ের আড়ালে লুকিয়ে থাকা এক শক্তি ⚡","🐆 Born Wild And So Free 🦅","⛓️ মুক্ত স্বভাবের মানুষরা বাঁধন পছন্দ করে না ❌","🎓 Best Wishes For Your Future 🚀","💖 অনেক ভালোবাসা আর দোয়া রইল তোমার জন্য 🤲","🍃 Pure Joy Found In Simplicity 🌼","💡 অনাবিল আনন্দের উৎস লুকিয়ে থাকে সাদাসিধে ভাবনায় 🧠","🍃 Sweet Vibe Changes The Mood 🌈","💖 মিষ্টি অনুভূতির ছোঁয়ায় মনটা ভালো হয়ে যায় 🥰","⭐ Little Star Shining So High 🌌","🌟 ছোট্ট তারাটা আজ আকাশের বুকে খুব উজ্জ্বল ✨","📸 So Pretty In Every Angle 📐","🖼️ ভারী সুন্দর লাগছে তোমাকে এই ফ্রেমে 🥰","✨ True Grace Never Goes Unnoticed 👀","💖 শালীন রূপের সৌন্দর্য মন কেড়ে নেয় সবার 🥰","🔮 Real Magic Happens Everyday Secretly 🌌","🌿 সত্যিকারের জাদু ছড়িয়ে আছে আমাদের চারপাশে প্রকৃতিতে 🌳","👑 Stay Golden Protect Your Peace 🧘","💎 সোনালী থেকো নিজের ব্যক্তিত্ব ধরে রেখে চিরকাল ✨","❤️ Only Love Can Heal Everything 🩹","💞 শুধু ভালোবাসা দিয়েই মন জয় করা সম্ভব 🎯","🌊 Deep Love That Lasts Forever ♾️","🏊 গভীর প্রেমের সাগরে ডুব দিতে মন চায় 💓","🌅 Perfect View For Romantic Eyes 👀","🏞️ মনোরম দৃশ্যের মাঝে হারিয়ে যাওয়ার নেই মানা 🚶","🧘 So Calm Mind Free Soul 🍃","🌸 ভারী শান্ত পরিবেশ আর স্নিগ্ধ এক অনুভূতি 🌾","🎯 Life Purpose Defined By Action 🚀","🛣️ জীবনের লক্ষ্য স্থির রেখে এগিয়ে চলাই আসল 🏆","❤️ Keep Hope Alive In Heart 💪","🌤️ আশা হারিও না কখনো মেঘের পর সূর্য উঠবেই ☀️","🥰 Sweet Smile Can Melt Hearts 💓","💘 মনভোলানো হাসির জাদুতে কুপোকাত সবাই আজ 🏹","💪 True Spirit Can Never Broken 🛡️","🤝 আসল রূপের প্রকাশ ঘটে মানুষের ব্যবহারে সবসময় 💯","🎯 My Choice Is Only You 👑","💎 আমার পছন্দ সবসময়ই একটু আলাদা আর সেরা ✨","😊 Always Smile Live With Joy 🎉","🌈 সবদা হাসো জীবনকে ইতিবাচকভাবে গ্রহণ করো তুমি 💯","🤍 Just Pure Intentions Clear Heart 💎","🔎 একদম খাঁটি মনের মানুষ খুঁজে পাওয়া ভার 💎","👑 Real Queen Without Any Crown 👸","💖 আসল রানি সে যে মানুষের মন জয় করে 🥰","🦁 Stay Bold Speak Truth Always 🗣️","🛡️ সাহসী থেকো অন্যায়ের প্রতিবাদ করো নির্ভয়ে ⚔️","🎶 Sweet Melody Of The Flute 🎼","🎵 মিষ্টি সুরের মূর্ছনায় মন হারিয়ে যায় বহু দূরে 🌌","👀 Soft Eyes Speaking Volumes Silently 🤫","💖 মায়াবী চোখের দিকে তাকালে মন ভালো হয়ে যায় 🥰","🧠 Deep Thoughts Quiet Moments Alone 🌌","🌃 গভীর ভাবনার সাগরে ডুবে থাকা নিঝুম রাতে 💭","☀️ Golden Smile Brightens The Day 🌅","🌸 সোনালী হাসির ছটায় দিনটা সুন্দর হয়ে উঠুক 🌻","🙏 Stay Blessed Happy Healthy Always 🍏","🤲 ভালো থেকো সুস্থ থেকো এই দোয়াই করি ✨","✨ True Miracle In The Making 🔮","⏳ অলৌকিক কিছু ঘটার অপেক্ষায় দিন গোনা প্রতিদিন 🗓️","❤️ Pure Heart Is Very Beautiful ✨","💎 পবিত্র মন হলো সবচেয়ে মূল্যবান রত্ন এই পৃথিবীতে 🌍","📸 Sweet Moment Captured On Camera 🎞️","🖼️ সুন্দর মুহূর্তগুলো ফ্রেমবন্দি হয়ে থাকলো স্মৃতির পাতায় 📖","🔐 Only Yours Till The End ♾️","🤝 শুধু তোমার হয়েই থাকতে চাই আজীবন আমি 💑","🤝 Best Friend Forever And Ever ♾️","🫂 প্রিয় বন্ধু আমার সব সুখ-দুঃখের ভাগীদার তুমি 💞","🧠 True Peace Comes From Inside 🧘","😌 আসল শান্তি লুকিয়ে থাকে নিজের মনের সন্তুষ্টিতে 💯","🏃 Keep Trying One Day Success 🏆","🎯 চেষ্টা করো হাল ছেড়ো না সফলতা আসবেই একদিন 💪","😊 Be Happy Share The Joy 🎉","🤲 খুশি থাকো এবং চারপাশে আনন্দ ছড়িয়ে দাও মন থেকে 💞","😎 Stay Cool Enjoy The Ride 🏎️","🤙 বিন্দাস থেকো জীবনের প্রতিটি মুহূর্তকে উপভোগ করো 💯","😇 Sweet Face With Pure Intentions 🤍","🧸 মায়া ভরা মুখের পেছনে এক নিষ্পাপ মনের হদিস 🔍","🤝 True Value Of The Relationship 💎","⛈️ আসল মূল্য বোঝা যায় কঠিন সময়ে পাশে থাকলে 🫂","🌌 Keep Faith In The Universe 🌌","🙏 বিশ্বাস রাখো নিজের ওপর আর ওপরওয়ালার ওপর সবসময় 👆","🧘 Pure Bliss In Quiet Places 🌳","🌿 পরম সুখের অনুভূতি মেলে প্রকৃতির কোণে এসে দাঁড়ালে 🌾","✨ Stay Unique From The Crowd 🚶","🎯 আলাদা হও ভিড়ের মাঝে নিজের পরিচয় তৈরি করো 🏆","👼 Sweet Angel Sent From Above 🌌","💡 মিষ্টি পরী তুমি আমার জীবনের অন্ধকার দূর করতে এসেছ ☀️","🛣️ True Path Leads To Success 🏆","🎯 সঠিক পথে চললে একটু সময় লাগলেও জয় নিশ্চিত 💪","🚶 Keep Walking Towards Your Dream 🚀","🛑 হেঁটে চলো নিজের গন্তব্যের দিকে কোনো বাধা না মেনে 🏁","💪 Be Strong Brave Every Storm ⛈️","🛡️ শক্ত হও জীবনের সব ঝড়ঝাপটা মোকাবিলা করতে শেখো ⚔️","🎨 Stay Creative Innovate Every Day 💡","💭 সৃজনশীল মনের ভাবনায় ফুটে উঠুক নতুন কিছু সবসময় ✨","🗣️ Sweet Tone Melts Every Anger 🤍","🤝 নরম গলার মিষ্টি কথায় কঠিন মানুষও গলে যায় 🥰","😊 True Smile Brings Inner Happiness 🧘","💖 সত্যিকারের হাসি আসে মন থেকে যখন তুমি সুখী হও 🥰","🤍 Pure Spirit Free From Hate 🕊️","❌ পবিত্র আত্মা কখনো কারো ক্ষতি করার কথা ভাবে না 🧠","🥰 So Sweet Of You Friend 🤝","🌸 খুব মিষ্টি একটা মন তোমার প্রশংসা না করে পারা যায় না 👍","🎉 Always Happy Vibrant Positive Energy ⚡","🧠 সবসময় সুখী থাকার চাবিকাঠি হলো ইতিবাচক চিন্তা করা 📈","🙇 Stay Humble Respect Everyone Always 🤝","❌ নম্র থেকো অহংকার মানুষকে ধ্বংসের দিকে নিয়ে যায় চিরকাল 📉","💝 Sweet Heart Filled With Kindness 🤍","🥰 প্রিয় হৃদয় আমার তুমি খুব সুন্দর মনের একজন মানুষ 🌸","🧠 True Beauty With Great Mind 💡","⏳ প্রকৃত রূপের চেয়ে সুন্দর চিন্তাভাবনা মানুষকে বাঁচিয়ে রাখে 📜","❤️ Keep Loving Keep Spreading Kindness 🤲","😊 ভালোবাসতে থাকো আর মানুষের মুখে হাসি ফোটাত থাকো 💞"];
 
-// Render ALL Photos and apply tilt/click
 const galleryGrid=document.getElementById('gallery-grid');
 function createPolaroid(src,cap,idx){const item=document.createElement('div');item.className='polaroid';item.style.setProperty('--base-rotate',`${(Math.random()-0.5)*8}deg`);const imgW=document.createElement('div');imgW.className='polaroid-img-wrapper';const img=document.createElement('img');img.src=src;img.alt=`Rai Memory ${idx+1}`;img.loading='lazy';imgW.appendChild(img);item.appendChild(imgW);const c=document.createElement('div');c.className='polaroid-caption';c.innerText=cap;item.appendChild(c);item.addEventListener('click',()=>{const i=galleryImages.indexOf(img.src);openLightbox(i>=0?i:0)});item.addEventListener('mousemove',e=>{const r=item.getBoundingClientRect();item.style.setProperty('--tilt-x',`${((e.clientY-r.top-r.height/2)/(r.height/2))*-10}deg`);item.style.setProperty('--tilt-y',`${((e.clientX-r.left-r.width/2)/(r.width/2))*10}deg`)});item.addEventListener('mouseleave',()=>{item.style.setProperty('--tilt-x','0deg');item.style.setProperty('--tilt-y','0deg')});return item}
 galleryImages.forEach((src,idx)=>galleryGrid.appendChild(createPolaroid(src,captions[idx%captions.length],idx)));
 
-// Smart Auto Rotation (Last 4 to Front using FLIP Animation)
 let isLightboxOpen=false;let galleryInterval=null;
-function rotateGallery(){
-  if(isLightboxOpen)return;
-  const items=Array.from(galleryGrid.children);
-  if(items.length<8)return;
-
-  // 1. First positions
-  const firstRects=items.map(el=>el.getBoundingClientRect());
-
-  // 2. Move last 4 to front & update array
-  const lastFour=items.slice(-4);
-  for(let i=3;i>=0;i--){
-    galleryGrid.insertBefore(lastFour[i],galleryGrid.firstChild);
-  }
-  for(let i=0;i<4;i++){
-    galleryImages.unshift(galleryImages.pop());
-    captions.unshift(captions.pop());
-  }
-
-  // 3. Last positions (After DOM shift)
-  const lastRects=items.map(el=>el.getBoundingClientRect());
-
-  // 4. Invert & Play
-  items.forEach((el,i)=>{
-    const dx=firstRects[i].left-lastRects[i].left;
-    const dy=firstRects[i].top-lastRects[i].top;
-    el.style.transition='none';
-
-    if(lastFour.includes(el)){
-      // Magical 3D Deep-Space entrance for the 4 moved items
-      el.style.transform=`translate(${dx}px,${dy}px) translateZ(-600px) rotateY(180deg) scale(0.3)`;
-      el.style.opacity='0';
-    } else {
-      // Smooth slide for the rest
-      el.style.transform=`translate(${dx}px,${dy}px)`;
-      el.style.opacity='1';
-    }
-  });
-
-  // Force reflow
-  void galleryGrid.offsetWidth;
-
-  // Play
-  requestAnimationFrame(()=>{
-    items.forEach(el=>{
-      el.style.transition='transform 1.2s cubic-bezier(0.23, 1, 0.32, 1), opacity 1.2s ease, box-shadow 0.4s ease';
-      el.style.transform=''; // Reverts to CSS base transform
-      el.style.opacity='1';
-    });
-  });
-}
+function rotateGallery(){if(isLightboxOpen)return;const items=Array.from(galleryGrid.children);if(items.length<8)return;const firstRects=items.map(el=>el.getBoundingClientRect());const lastFour=items.slice(-4);for(let i=3;i>=0;i--){galleryGrid.insertBefore(lastFour[i],galleryGrid.firstChild)}for(let i=0;i<4;i++){galleryImages.unshift(galleryImages.pop());captions.unshift(captions.pop())}const lastRects=items.map(el=>el.getBoundingClientRect());items.forEach((el,i)=>{const dx=firstRects[i].left-lastRects[i].left;const dy=firstRects[i].top-lastRects[i].top;el.style.transition='none';if(lastFour.includes(el)){el.style.transform=`translate(${dx}px,${dy}px) translateZ(-600px) rotateY(180deg) scale(0.3)`;el.style.opacity='0'}else{el.style.transform=`translate(${dx}px,${dy}px)`;el.style.opacity='1'}});void galleryGrid.offsetWidth;requestAnimationFrame(()=>{items.forEach(el=>{el.style.transition='transform 1.2s cubic-bezier(0.23, 1, 0.32, 1), opacity 1.2s ease, box-shadow 0.4s ease';el.style.transform='';el.style.opacity='1'})})}
 function startAutoRotation(){clearInterval(galleryInterval);galleryInterval=setInterval(rotateGallery,10000)}
 startAutoRotation();
 
-// Lightbox with Smart Pause
 let currentImageIndex=0;const lightbox=document.getElementById('lightbox');const lightboxImg=document.getElementById('lightbox-img');const lightboxClose=document.getElementById('lightbox-close');const lightboxPrev=document.getElementById('lightbox-prev');const lightboxNext=document.getElementById('lightbox-next');
 function openLightbox(index){isLightboxOpen=true;clearInterval(galleryInterval);currentImageIndex=index;lightboxImg.src=galleryImages[index];lightbox.classList.add('active');document.body.style.overflow='hidden'}
 function closeLightbox(){lightbox.classList.remove('active');document.body.style.overflow='';setTimeout(()=>{isLightboxOpen=false;startAutoRotation()},5000)}
@@ -579,7 +548,7 @@ function updateLifeCounter(){const now=new Date();let y=now.getFullYear()-birthD
 updateLifeCounter();setInterval(updateLifeCounter,1000);
 
 function launchConfetti(){const c=['#d4af37','#ffd700','#ffc107','#ffffff','#87CEEB','#0f4c81','#1e5fa3'];const end=Date.now()+6000;(function f(){for(let i=0;i<6;i++){const el=document.createElement('div');el.className='confetti';el.style.left=Math.random()*100+'vw';el.style.top='-20px';el.style.background=c[Math.floor(Math.random()*c.length)];const s=Math.random()*10+6;el.style.width=s+'px';el.style.height=(Math.random()>0.5?s:s*0.4)+'px';el.style.animationDuration=(Math.random()*3+3)+'s';if(Math.random()>0.6)el.style.borderRadius='50%';document.body.appendChild(el);setTimeout(()=>el.remove(),6000)}if(Date.now()<end)requestAnimationFrame(f)})()}
-function createHeart(){const h=['💙','💛','✨','💫','🌟','⭐'];const el=document.createElement('div');el.className='heart-particle';el.textContent=h[Math.floor(Math.random()*h.length)];el.style.left=Math.random()*100+'vw';el.style.fontSize=(Math.random()*18+10)+'px';el.style.animationDuration=(Math.random()*5+7)+'s';el.style.opacity='0.7';document.body.appendChild(el);setTimeout(()=>el.remove(),13000)}
+function createHeart(){const h=['💙','💛','✨','💫','🌟','⭐','❤️','🥰'];const el=document.createElement('div');el.className='heart-particle';el.textContent=h[Math.floor(Math.random()*h.length)];el.style.left=Math.random()*100+'vw';el.style.fontSize=(Math.random()*18+10)+'px';el.style.animationDuration=(Math.random()*5+7)+'s';el.style.opacity='0.7';document.body.appendChild(el);setTimeout(()=>el.remove(),13000)}
 setInterval(createHeart,900);for(let i=0;i<5;i++)setTimeout(createHeart,i*300);
 
 document.getElementById('gift-box').addEventListener('click',function(){this.classList.add('opened');document.getElementById('surprise-text').classList.add('visible');launchConfetti()});
