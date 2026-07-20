@@ -21,6 +21,18 @@ body{font-family:'Poppins',sans-serif;background:var(--royal-deep);color:var(--w
 @keyframes moveOrb2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-100px,-50px) scale(1.1)}}
 @keyframes moveOrb3{0%,100%{transform:translate(-50%,0) scale(1)}50%{transform:translate(-50%,-100px) scale(0.8)}}
 @keyframes hueRotate{0%{filter:blur(120px) hue-rotate(0deg)}100%{filter:blur(120px) hue-rotate(360deg)}}
+
+/* GLOBAL ANIMATED MULTI-COLOR BORDER */
+@keyframes animatedBorder {
+    0% { background-position: 0% 50%, 0% 50%; }
+    100% { background-position: 0% 50%, 400% 50%; }
+}
+.rainbow-border {
+    border: 8px solid transparent;
+    background-size: 100% 100%, 400% 100%;
+    animation: animatedBorder 8s linear infinite;
+}
+
 .cursor-dot,.cursor-outline{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);mix-blend-mode:difference}
 .cursor-dot{width:8px;height:8px;background:var(--white);box-shadow:0 0 15px var(--gold-bright)}
 .cursor-outline{width:40px;height:40px;border:1px solid var(--gold-bright);transition:width 0.3s ease,height 0.3s ease,border-color 0.3s ease;box-shadow:0 0 15px rgba(255,215,0,0.2)}
@@ -87,7 +99,8 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .about{max-width:1200px;margin:0 auto}
 .about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:center}
 .about-portrait-wrapper{perspective:1000px}
-.about-portrait{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.4);aspect-ratio:4/5;border:1px solid rgba(212,175,55,0.3);transition:transform 0.4s ease;transform-style:preserve-3d}
+.about-portrait{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.4);aspect-ratio:4/5;transition:transform 0.4s ease;transform-style:preserve-3d}
+.about-portrait.rainbow-border{background:linear-gradient(var(--royal-deep),var(--royal-deep)) padding-box,linear-gradient(45deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3,#ffd700) border-box}
 .about-portrait img{width:100%;height:100%;object-fit:cover;transition:transform 0.8s ease}
 .about-portrait:hover img{transform:scale(1.08)}
 .about-portrait::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,37,64,0.6) 0%,transparent 50%);z-index:1;pointer-events:none}
@@ -102,7 +115,7 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .info-card-caption{font-family:'Hind Siliguri',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.8);margin-top:0.4rem;line-height:1.5}
 
 .life-counter-section{max-width:1000px;margin:0 auto}
-.terminal-window{background:rgba(5,10,20,0.85);border:1px solid rgba(0,255,157,0.3);border-radius:16px;box-shadow:0 0 50px rgba(0,255,157,0.1),inset 0 0 20px rgba(0,0,0,0.5);overflow:hidden;backdrop-filter:blur(20px);position:relative}
+.terminal-window.rainbow-border{background:linear-gradient(rgba(5,10,20,0.85),rgba(5,10,20,0.85)) padding-box,linear-gradient(45deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3,#ffd700) border-box;border-radius:16px;box-shadow:0 0 50px rgba(0,255,157,0.1),inset 0 0 20px rgba(0,0,0,0.5);overflow:hidden;backdrop-filter:blur(20px);position:relative}
 .terminal-window::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,255,157,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,157,0.03) 1px,transparent 1px);background-size:20px 20px;pointer-events:none}
 .terminal-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:rgba(0,0,0,0.4);border-bottom:1px solid rgba(0,255,157,0.2);position:relative;z-index:2}
 .terminal-dots{display:flex;gap:0.5rem}.terminal-dot{width:10px;height:10px;border-radius:50%}.dot-red{background:#ff5f56}.dot-yellow{background:#ffbd2e}.dot-green{background:#27c93f}
@@ -167,7 +180,7 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .memory-text,.writing-text{font-family:'Hind Siliguri',sans-serif;font-size:1.2rem;color:#4a3520;line-height:2.6;white-space:pre-line;background:rgba(255,255,255,0.6);padding:1.5rem;border-radius:8px;text-shadow:0px 0px 1px rgba(255,255,255,0.8)}
 
 .hobby{max-width:1200px;margin:0 auto}
-.hobby-card{position:relative;border-radius:30px;overflow:hidden;min-height:550px;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);border:1px solid rgba(212,175,55,0.3);transition:transform 0.4s ease;transform-style:preserve-3d}
+.hobby-card.rainbow-border{position:relative;border-radius:30px;overflow:hidden;min-height:550px;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);transition:transform 0.4s ease;transform-style:preserve-3d;background:linear-gradient(var(--royal-deep),var(--royal-deep)) padding-box,linear-gradient(45deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3,#ffd700) border-box}
 .hobby-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.35) saturate(1.2);transition:transform 8s ease}
 .hobby-card:hover .hobby-bg{transform:scale(1.08)}
 .hobby-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at center,rgba(15,76,129,0.5),rgba(10,37,64,0.85));z-index:1}
@@ -198,7 +211,7 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 
 .letter-popup{position:fixed;inset:0;background:rgba(5,10,20,0.95);backdrop-filter:blur(15px);display:flex;justify-content:center;align-items:center;z-index:1001;padding:2rem;opacity:0;visibility:hidden;transition:opacity 0.4s ease,visibility 0.4s ease}
 .letter-popup.active{opacity:1;visibility:visible}
-.letter-paper{background:#fdfbf7;color:#4a3b2a;padding:0;border-radius:12px;max-width:600px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 0 60px rgba(255,215,0,0.3),0 20px 50px rgba(0,0,0,0.5);transform:scale(0.8) rotateY(10deg);transition:transform 0.5s cubic-bezier(0.175,0.885,0.32,1.275);position:relative;border:8px solid #d4af37}
+.letter-paper.rainbow-border{background:linear-gradient(#fdfbf7,#fdfbf7) padding-box,linear-gradient(45deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3,#ffd700) border-box;color:#4a3b2a;padding:0;border-radius:12px;max-width:600px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 0 60px rgba(255,215,0,0.3),0 20px 50px rgba(0,0,0,0.5);transform:scale(0.8) rotateY(10deg);transition:transform 0.5s cubic-bezier(0.175,0.885,0.32,1.275);position:relative}
 .letter-popup.active .letter-paper{transform:scale(1) rotateY(0deg)}
 .letter-close{position:absolute;top:15px;right:15px;background:#8b0000;color:#fff;width:35px;height:35px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:none;border:none;transition:transform 0.3s,background 0.3s;box-shadow:0 2px 5px rgba(0,0,0,0.2);z-index:20}
 .letter-close:hover{transform:rotate(90deg);background:#b30000}
@@ -235,9 +248,7 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .private-gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3rem;max-width:900px;margin:0 auto}
 @media(max-width:768px){.private-gallery-grid{grid-template-columns:1fr;gap:2rem;max-width:400px}}
 
-.private-photo-card{position:relative;border-radius:18px;cursor:none;transform-style:preserve-3d;transition:transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275),box-shadow 0.4s ease;box-shadow:0 15px 30px rgba(0,0,0,0.4);background:var(--royal-deep);border:12px solid transparent;background-image:linear-gradient(var(--royal-deep),var(--royal-deep)) padding-box,linear-gradient(90deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3,#ffd700,#ff6b6b) border-box;background-size:100% 100%,300% 100%;animation:animatedBorder 4s linear infinite}
-@keyframes animatedBorder{0%{background-position:0% 0%,0% 0%}100%{background-position:0% 0%,300% 0%}}
-
+.private-photo-card{position:relative;border-radius:18px;cursor:none;transform-style:preserve-3d;transition:transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275),box-shadow 0.4s ease;box-shadow:0 15px 30px rgba(0,0,0,0.4);background:var(--royal-deep);border:12px solid transparent;background-image:linear-gradient(var(--royal-deep),var(--royal-deep)) padding-box,linear-gradient(45deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3,#ffd700,#ff6b6b) border-box;background-size:100% 100%,400% 400%;animation:animatedBorder 8s linear infinite}
 .private-photo-card img{width:100%;display:block;aspect-ratio:9/16;object-fit:cover;border-radius:6px;transition:transform 0.6s ease,filter 0.4s ease;filter:saturate(1.2) contrast(1.1)}
 .private-photo-card:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 20px 50px rgba(0,0,0,0.5),0 0 40px rgba(255,215,0,0.5)}
 .private-photo-card:hover img{transform:scale(1.1);filter:saturate(1.5) contrast(1.2) brightness(1.05)}
@@ -261,7 +272,9 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 
 .scrapbook-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));gap:3.5rem;padding:2rem 0;perspective:1200px;transform-style:preserve-3d}
 @media(max-width:768px){.scrapbook-grid{grid-template-columns:1fr;gap:2.5rem}}
-.polaroid{--tilt-x:0deg;--tilt-y:0deg;--base-rotate:0deg;background:#fff;padding:12px 12px 25px 12px;transition:transform 1s cubic-bezier(0.23,1,0.32,1),box-shadow 0.4s ease,opacity 1s ease;position:relative;cursor:none;z-index:1;border-radius:6px;transform:rotate(var(--base-rotate,0deg)) perspective(800px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));will-change:transform,opacity}
+
+/* MULTI-COLOR ANIMATED POLAROIDS */
+.polaroid{--tilt-x:0deg;--tilt-y:0deg;--base-rotate:0deg;padding:12px 12px 25px 12px;transition:transform 1s cubic-bezier(0.23,1,0.32,1),box-shadow 0.4s ease,opacity 1s ease;position:relative;cursor:none;z-index:1;border-radius:6px;transform:rotate(var(--base-rotate,0deg)) perspective(800px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));will-change:transform,opacity;border:8px solid transparent;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(45deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3,#ffd700,#ff6b6b) border-box;background-size:100% 100%,400% 400%;animation:animatedBorder 8s linear infinite}
 .polaroid-img-wrapper{position:relative;overflow:hidden;line-height:0;border-radius:4px;box-shadow:0 4px 10px rgba(0,0,0,0.2)}
 .polaroid img{width:100%;height:100%;aspect-ratio:9/16;object-fit:cover;display:block;filter:saturate(1.2) contrast(1.1);transition:filter 0.4s ease, transform 0.5s ease}
 .polaroid-caption{font-family:'Hind Siliguri',sans-serif;font-size:0.9rem;color:#444;text-align:center;margin-top:8px;line-height:1.2;height:25px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-weight:500}
@@ -269,22 +282,10 @@ section{padding:7rem 2rem;position:relative;z-index:2}
 .polaroid:hover img{filter:saturate(1.5) contrast(1.2) brightness(1.05);transform:scale(1.08)}
 .polaroid-img-wrapper::after{content:'';position:absolute;top:0;left:-150%;width:80%;height:100%;background:linear-gradient(to right,transparent,rgba(255,255,255,0.6),transparent);transform:skewX(-25deg);transition:0.7s;z-index:3;pointer-events:none}
 .polaroid:hover .polaroid-img-wrapper::after{left:150%}
-.polaroid:nth-child(6n+1){--base-rotate:-3deg;border:8px solid #FFD700;box-shadow:inset 0 0 10px rgba(255,215,0,0.3),0 0 15px rgba(255,215,0,0.4),0 10px 25px rgba(0,0,0,0.5)}
-.polaroid:nth-child(6n+1):hover{box-shadow:inset 0 0 20px rgba(255,215,0,0.5),0 0 40px rgba(255,215,0,0.9),0 20px 40px rgba(0,0,0,0.7)}
-.polaroid:nth-child(6n+2){--base-rotate:2deg;border:8px solid #00FFFF;box-shadow:inset 0 0 10px rgba(0,255,255,0.3),0 0 15px rgba(0,255,255,0.4),0 10px 25px rgba(0,0,0,0.5)}
-.polaroid:nth-child(6n+2):hover{box-shadow:inset 0 0 20px rgba(0,255,255,0.5),0 0 40px rgba(0,255,255,0.9),0 20px 40px rgba(0,0,0,0.7)}
-.polaroid:nth-child(6n+3){--base-rotate:-1deg;border:8px solid #FF1493;box-shadow:inset 0 0 10px rgba(255,20,147,0.3),0 0 15px rgba(255,20,147,0.4),0 10px 25px rgba(0,0,0,0.5)}
-.polaroid:nth-child(6n+3):hover{box-shadow:inset 0 0 20px rgba(255,20,147,0.5),0 0 40px rgba(255,20,147,0.9),0 20px 40px rgba(0,0,0,0.7)}
-.polaroid:nth-child(6n+4){--base-rotate:3deg;border:8px solid #32CD32;box-shadow:inset 0 0 10px rgba(50,205,50,0.3),0 0 15px rgba(50,205,50,0.4),0 10px 25px rgba(0,0,0,0.5)}
-.polaroid:nth-child(6n+4):hover{box-shadow:inset 0 0 20px rgba(50,205,50,0.5),0 0 40px rgba(50,205,50,0.9),0 20px 40px rgba(0,0,0,0.7)}
-.polaroid:nth-child(6n+5){--base-rotate:-2deg;border:8px solid #FF4500;box-shadow:inset 0 0 10px rgba(255,69,0,0.3),0 0 15px rgba(255,69,0,0.4),0 10px 25px rgba(0,0,0,0.5)}
-.polaroid:nth-child(6n+5):hover{box-shadow:inset 0 0 20px rgba(255,69,0,0.5),0 0 40px rgba(255,69,0,0.9),0 20px 40px rgba(0,0,0,0.7)}
-.polaroid:nth-child(6n+6){--base-rotate:1deg;border:8px solid #9370DB;box-shadow:inset 0 0 10px rgba(147,112,219,0.3),0 0 15px rgba(147,112,219,0.4),0 10px 25px rgba(0,0,0,0.5)}
-.polaroid:nth-child(6n+6):hover{box-shadow:inset 0 0 20px rgba(147,112,219,0.5),0 0 40px rgba(147,112,219,0.9),0 20px 40px rgba(0,0,0,0.7)}
 
 .lightbox{position:fixed;inset:0;background:rgba(5,10,20,0.97);backdrop-filter:blur(15px);display:flex;justify-content:center;align-items:center;z-index:1000;padding:2rem;opacity:0;visibility:hidden;transition:opacity 0.3s ease,visibility 0.3s ease}
 .lightbox.active{opacity:1;visibility:visible}
-.lightbox img{max-width:90%;max-height:85vh;border-radius:12px;border:3px solid var(--gold);box-shadow:0 0 80px rgba(255,215,0,0.5);animation:lightboxZoom 0.4s ease}
+.lightbox img{max-width:90%;max-height:85vh;border-radius:12px;border:8px solid transparent;background:linear-gradient(var(--royal-deep),var(--royal-deep)) padding-box,linear-gradient(45deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3,#ffd700) border-box;background-size:100% 100%,400% 400%;animation:animatedBorder 8s linear infinite;box-shadow:0 0 80px rgba(255,215,0,0.5);animation:lightboxZoom 0.4s ease}
 @keyframes lightboxZoom{from{transform:scale(0.8);opacity:0}to{transform:scale(1);opacity:1}}
 .lightbox-close{position:absolute;top:2rem;right:2rem;width:50px;height:50px;background:rgba(255,255,255,0.9);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:none;transition:all 0.3s ease;font-size:1.5rem;z-index:1001}
 .lightbox-close:hover{background:var(--gold-bright);transform:rotate(90deg) scale(1.1)}
@@ -374,7 +375,7 @@ footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;back
   <div class="divider fade-in"><div class="divider-line"></div><span class="divider-star">✦</span><div class="divider-line"></div></div>
   <p class="section-subtitle fade-in"><span class="multi-text">আমার ছোট্ট জগতের আলো ❤️🥰</span></p>
   <div class="about-grid fade-in">
-    <div class="about-portrait-wrapper"><div class="about-portrait" id="about-portrait"><img src="https://i.ibb.co/bMwWRBWT/IMG20260608111007.jpg" alt="Rai Portrait"></div></div>
+    <div class="about-portrait-wrapper"><div class="about-portrait rainbow-border" id="about-portrait"><img src="https://i.ibb.co/bMwWRBWT/IMG20260608111007.jpg" alt="Rai Portrait"></div></div>
     <div class="about-details">
       <h2>A soul woven with starlight & songs ✨💕</h2>
       <p class="about-poem">তোমার হাসিতে যেন রোদের আলো ছড়ায়,<br>এই ওয়েবসাইটের পাতায় পাতায় শুধু তোমার গল্প কথা কয়।</p>
@@ -391,7 +392,7 @@ footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;back
   <h2 class="section-title fade-in">Chronicles of Time</h2>
   <div class="divider fade-in"><div class="divider-line"></div><span class="divider-star">✦</span><div class="divider-line"></div></div>
   <p class="section-subtitle fade-in"><span class="multi-text">প্রতিটি সেকেন্ডের হিসাব — The exact measurement of existence ⏳💕</span></p>
-  <div class="terminal-window fade-in">
+  <div class="terminal-window rainbow-border fade-in">
     <div class="terminal-header">
       <div class="terminal-dots"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div></div>
       <div class="terminal-title">rai_life_counter.exe</div>
@@ -461,7 +462,7 @@ footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;back
   <h2 class="section-title fade-in">The Songbird's Soul</h2>
   <div class="divider fade-in"><div class="divider-line"></div><span class="divider-star">✦</span><div class="divider-line"></div></div>
   <p class="section-subtitle fade-in"><span class="multi-text">Where her voice becomes pure magic 🎶❤️</span></p>
-  <div class="hobby-card fade-in" id="hobby-card">
+  <div class="hobby-card rainbow-border fade-in" id="hobby-card">
     <img src="https://i.ibb.co/LzHCHNbW/IMG20260608111013.jpg" alt="Music" class="hobby-bg">
     <div class="hobby-content">
       <div class="music-icon"><i class="fas fa-music"></i></div>
@@ -538,7 +539,7 @@ footer{padding:6rem 2rem 4rem;text-align:center;position:relative;z-index:2;back
 </div>
 
 <div class="letter-popup" id="letter-popup">
-  <div class="letter-paper">
+  <div class="letter-paper rainbow-border">
     <button class="letter-close" id="letter-close"><i class="fas fa-times"></i></button>
     <div class="letter-photo-frame">
       <img src="https://i.ibb.co/3y1M0W9K/download.jpg" alt="Special Letter Frame">
